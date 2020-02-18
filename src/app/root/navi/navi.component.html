@@ -1,0 +1,14 @@
+<nav class="site-navi">
+    <div class="site-logo"></div>
+    <div class="concerts-navi">
+        <p><a href="">Концерти</a></p>
+    </div>
+    <div class="primary-menu">
+        <ul>
+            <li *ngIf="isLoggin"><a  href="">Профил</a></li>
+            <li *ngIf="!isLoggin"><a href="" >Влез</a></li>
+            <li *ngIf="isLoggin"><a href="" >Излез</a></li>
+            <li *ngIf="!isLoggin"><a href="" >Регистрирай се</a></li>
+        </ul>
+    </div>
+</nav>

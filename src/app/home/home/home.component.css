@@ -1,0 +1,29 @@
+h1.site-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3.5em;
+    color:#3C3B32;
+    color:#fff;
+    text-align: center;
+    text-shadow: 3px 3px 5px black;
+    margin-top: 100px;
+
+}
+.home-page-button {
+    text-align: center;
+    padding-top: 100px;
+}
+a.show-concerts {
+    text-decoration: none;
+    color:#fff;
+    text-shadow: 0 0 5px black;
+    box-shadow: 0 0 15px black;
+    font-size: 2.5em;
+    padding: 10px 40px;
+    border: 0.5px solid #3C3B32;
+    border-radius: 3px;
+    border: 0.5px solid #fff;
+
+}
+a.show-concerts:hover {
+    box-shadow: 0 0 20px black;
+}

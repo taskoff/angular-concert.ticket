@@ -1,0 +1,70 @@
+.site-navi a {
+    text-decoration: none;
+    color: #3C3B32;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+    padding: 5px 2px;
+    font-size: 2em;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    position: relative;
+}
+.concerts-navi p,
+.site-navi li {
+    padding: 0 20px;
+}
+
+.site-navi a:hover {
+    z-index: 1;
+    /* background: #E8E4CF; */
+}
+
+.site-navi a::before {
+  display: block;
+  content: '';
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  left: 0;
+  width: 0;
+}
+
+.site-navi a:hover::before {
+    width: 100%;
+    border-bottom: 4px solid white;
+    transition: width 0.3s ease;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 3px;
+}
+
+
+
+.site-navi li {
+    list-style: none;
+}
+
+.site-navi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* border-bottom: 1px solid #646153; */
+    padding-right: 30px;
+}
+.primary-menu {
+    /* margin-left: auto; */
+}
+
+.site-navi ul {
+    display: flex;
+    padding-left: 0;
+}
+.site-logo {
+    background-image: url('../../../assets/static/tickets.png');
+    background-size: cover;
+    width: 220px;
+    height: 180px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
