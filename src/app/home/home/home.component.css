@@ -5,12 +5,12 @@ h1.site-title {
     color:#fff;
     text-align: center;
     text-shadow: 3px 3px 5px black;
-    margin-top: 100px;
+    margin-top: 150px;
 
 }
 .home-page-button {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 a.show-concerts {
     text-decoration: none;
@@ -25,5 +25,5 @@ a.show-concerts {
 
 }
 a.show-concerts:hover {
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 30px black;
 }
