@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'concert-tiket';
+  
+  $scope;getBodyStyle = function () {
+    return {background: 'black'};
+};
+
+//   ngOnInit() {
+//     document.body.classList.add('bg-img');
+// }
 }
