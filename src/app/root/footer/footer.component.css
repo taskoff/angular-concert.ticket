@@ -1,0 +1,11 @@
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* padding: 0 30px; */
+}
+.site-footer p {
+    font-size: 2em;
+    color: white;
+    margin: 0 20px;
+}
