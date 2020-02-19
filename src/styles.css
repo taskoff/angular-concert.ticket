@@ -39,7 +39,7 @@ app-root {
     flex-grow: 2;
     height: 100%;
 }
-.footer-container {
-    /* margin-top: auto; */
+.footer-container p{
+    padding: 20px 0;
 }
 

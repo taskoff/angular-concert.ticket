@@ -6,7 +6,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./navi.component.css']
 })
 export class NaviComponent implements OnInit {
-  isLoggin: boolean = false;
+  isLoggin: boolean = true;
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
