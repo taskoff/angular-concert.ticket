@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConcertService } from 'src/app/concert/concert.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private concertService: ConcertService) { }
 
   ngOnInit() {
+  }
+
+  getList() {
+    this.concertService.getConcertList('Basic', 'guest', 'guest');
   }
 
 }
