@@ -1,4 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { ConcertService } from 'src/app/concert/concert.service';
+import { AuthService } from 'src/app/auth.service';
+import { FormService } from 'src/app/form/form.service';
 
 @Component({
   selector: 'app-navi',
@@ -6,13 +9,25 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./navi.component.css']
 })
 export class NaviComponent implements OnInit {
-  isLoggin: boolean = false;
-  constructor(private elementRef: ElementRef) { }
+  isLoggin: boolean = this.authService.isLogin;
+  constructor(private authService: AuthService,
+    private concertService: ConcertService) {
+      
+     }
 
   ngOnInit() {
-    // this.elementRef.nativeElement.ownerDocument.body.style.background = 'url(https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)';
-    // this.elementRef.nativeElement.ownerDocument.body.style.background = 'url(https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)';
+    
 
   }
-
+ 
+  logout() {
+    this.authService.logout(sessionStorage.authtoken)
+  }
+  getList() {
+    console.log(this.concertService.list$)
+    if(!this.concertService.list$){
+      this.concertService.getConcertList('Basic', 'guest', 'guest');
+    }
+    
+  }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ConcertRoutingModule } from '../concert/concert-routing.module';
+import { RootModule } from '../root/root.module';
 
 
 
@@ -9,7 +10,8 @@ import { ConcertRoutingModule } from '../concert/concert-routing.module';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    ConcertRoutingModule
+    ConcertRoutingModule,
+    RootModule
   ],
   exports: [HomeComponent,
   ]

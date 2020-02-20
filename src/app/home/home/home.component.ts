@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConcertService } from 'src/app/concert/concert.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,17 @@ import { ConcertService } from 'src/app/concert/concert.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private concertService: ConcertService) { }
-
+  isLogin = !!this.authService.isLogin;
+  constructor(private concertService: ConcertService, private authService: AuthService) { }
+      
   ngOnInit() {
   }
 
   getList() {
+    console.log(this.concertService.list$)
+    if (!this.concertService.list$) {
     this.concertService.getConcertList('Basic', 'guest', 'guest');
+    }
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from '../app/auth.service'
+import { FormService } from './form/form.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'concert-tiket';
-  
-  $scope;getBodyStyle = function () {
-    return {background: 'black'};
-};
+  isLogin = this.formService.isLogin;
+  constructor(private formService: FormService){
+
+  }
 
 //   ngOnInit() {
 //     document.body.classList.add('bg-img');
