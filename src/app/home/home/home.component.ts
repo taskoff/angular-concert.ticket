@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConcertService } from 'src/app/concert/concert.service';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 export class HomeComponent implements OnInit {
   isLogin = !!this.authService.isLogin;
   constructor(private concertService: ConcertService, private authService: AuthService) { }
-      
+  
   ngOnInit() {
   }
 

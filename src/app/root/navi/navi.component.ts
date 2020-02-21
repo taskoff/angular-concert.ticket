@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ConcertService } from 'src/app/concert/concert.service';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { FormService } from 'src/app/form/form.service';
 
 @Component({

@@ -12,6 +12,6 @@
             <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a routerLink="" (click)='logout()' >Излез</a></li>
             <li *ngIf="!isLoggin" id="navi-register" class="show-wen-noLogin"><a routerLink="/register" >Регистрирай се</a></li>
         </ul>
-        {{isLoggin | json}}
+        
     </div>
 </nav>

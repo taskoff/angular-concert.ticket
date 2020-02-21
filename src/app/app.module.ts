@@ -10,11 +10,14 @@ import { RootModule } from './root/root.module';
 import { HomeModule } from './home/home.module';
 import { FormModule } from './form/form.module';
 import { ConcertModule } from './concert/concert.module';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    UserProfileComponent,
     
   ],
   imports: [
@@ -27,7 +30,7 @@ import { ConcertModule } from './concert/concert.module';
     HomeModule,
     FormModule,
     ConcertModule,
-    
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
