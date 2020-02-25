@@ -16,9 +16,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.ticketList.length === 0) {
+    // if (this.ticketList.length === 0) {
       this.concertService.checkUserTickets();
-    }
+    // }
   }
 
 }

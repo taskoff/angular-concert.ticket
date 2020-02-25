@@ -80,11 +80,27 @@ export class ConcertService {
       // })
         
       // }))
-       this.list$.subscribe(d=>{d.forEach(e=>{
+       this.list$.subscribe(d=>{
+        d.forEach(e=>{
         let ticketList = e.users.filter(u=>u.userId === sessionStorage.userId)
-        if (ticketList.lenght > 0) {
-         console.log(ticketList.users) 
-          // this.userTicketsList.push({group: e.groupName, city: e.city, tickets: u.ticket, date: e.date})
+        if (ticketList.length > 0) {
+         ticketList.forEach(u=>{
+           let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
+           let isGroup = false;
+          //  console.log(currentGroup)
+          this.userTicketsList.forEach(g=>{
+            if(g.group === currentGroup.group && g.date === currentGroup.date){
+              g.tickets = currentGroup.tickets;
+              isGroup = true;
+             
+            } 
+
+          });
+          if (!isGroup) {
+            this.userTicketsList.push(currentGroup)
+          }
+         })
+         
         }
         })})
   }

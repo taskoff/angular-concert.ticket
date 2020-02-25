@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css','../../shared/loader-styles.css']
 })
 export class ListComponent implements OnInit {
   isLoggin: boolean = !!this.authService.isLogin;

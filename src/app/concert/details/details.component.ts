@@ -21,7 +21,7 @@ concert = this.concertService.concertDetail;
 
   resTicket(id, count, concert) {
     this.concertService.reserveTicket(id, count, concert)
-    this.concertService.checkUserTickets()
+    // this.concertService.checkUserTickets()
   }
   
 }

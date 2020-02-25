@@ -8,6 +8,10 @@ h1.page-title {
     margin-top: 10px;
 
 }
+.loader-container {
+    max-width: 10%;
+    margin: auto;
+}
 
 .concert-list {
     display: flex;
