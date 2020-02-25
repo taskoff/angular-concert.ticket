@@ -1,0 +1,67 @@
+h1.page-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3.5em;
+    color:#3C3B32;
+    color:#fff;
+    text-align: center;
+    text-shadow: 3px 3px 5px black;
+    margin-top: 10px;
+
+}
+
+.form {
+    text-align: center;
+    max-width: 50%;
+    min-height: 60%;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding-top: 20px;
+    box-shadow: 0 0 10px black;
+    background-color:rgba(133,110,92,0.500);
+}
+
+.form input {
+    min-width: 50%;
+    margin-top: 30px;
+    line-height: 2em;
+}
+
+
+.have-acount,
+.have-no-acount,
+.form label {
+    font-size: 1.5em;
+    padding-right: 10px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+.have-acount a,
+.have-no-acount a {
+    text-shadow: none;
+    margin-left: 10px;
+}
+
+.form-label-input {
+    text-align: right;
+}
+/*  */
+
+form .btn {
+    margin-top: 30px;
+    min-width: 30%;
+    background-color: rgba(252, 128, 4, 0.600);
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: white;
+    cursor: pointer;
+}
+
+form .btn:hover {
+    background-color: #FF8404;
+    box-shadow: 0 0 5px black;
+    transition: background-color 0.2s ease;
+    transition: box-shadow 0.3s ease;
+}

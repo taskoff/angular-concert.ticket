@@ -1,0 +1,49 @@
+<app-navi></app-navi>
+
+<div class="page-title-div">
+    <h1 class="page-title">Register</h1>
+</div>
+
+
+<form #regForm="ngForm" class="register-form form"  action="/register" method="post">
+  <div class="input-container">
+      <div class="form-label-input">
+        <label for="inputName"><span>Име</span></label>
+        <input ngModel name="firstName" type="text" id="inputName"  class="form-input" placeholder="Име" autofocus="">
+      </div>
+
+      <div class="form-label-input">
+        <label for="inputSecondName">Фамилия</label>
+        <input ngModel  type="text" id="inputSecondName" name="secondName" class="form-input" placeholder="Фамилия" autofocus="">
+      </div>
+    
+      <div class="form-label-input">
+          <label for="inputEmail">Имейл</label>
+        <input type="text" id="inputEmail" ngModel  name="email" class="form-input" placeholder="Имейл" autofocus="">
+      </div>
+
+      <div class="form-label-input">
+        <label for="inputPassword">Парола</label>
+        <input type="password" id="inputPassword" ngModel name="password" class="form-input" placeholder="Парола" >
+      </div>
+
+      <div class="form-label-input">
+        <label for="inputRePassword">Повтори Парола</label>
+        <input type="password" id="inputRePassword" ngModel name="rePassword" class="form-input" placeholder="Повтори Парола">
+      </div>
+
+   
+
+  </div>
+
+        <button class="btn registerBtn" type="submit" (click)="register(regForm.value)">Регистрирай се</button>
+
+        <div class="div-have-acount">
+          <p class="have-acount"> Вече имаш акаунт? Тогава<a routerLink="/login">Влез</a>
+          </p>
+        </div>
+
+  </form>
+
+
+  {{ regForm.value | json}}

@@ -1,0 +1,91 @@
+h1.page-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3.5em;
+    color:#3C3B32;
+    color:#fff;
+    text-align: center;
+    text-shadow: 3px 3px 5px black;
+    margin-top: 10px;
+
+}
+
+.concert-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.concert-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-width: 32%;
+    border: 1px solid white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    background-color:rgba(133,110,92,0.500);
+}
+.concert-container:hover {
+    box-shadow: 0 0 20px black;
+    transition: box-shadow 0.3s ease;
+}
+
+.concert-info {
+    list-style: none;
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    
+    
+}
+
+.group-img-container {
+    position: relative;
+    min-width: 300px;
+    margin: 0 30px;
+    overflow: hidden;
+    border-radius: 5px;
+    
+}
+
+.group-img-container::before {
+    display: block;
+    content: '';
+    padding-top: 50%;
+   
+   
+}
+
+
+.group-img-container img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* opacity: 0; */
+}
+.two-btns,
+.div-detail-btn {
+    text-align: center;
+}
+.two-btns a,
+.div-detail-btn a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+    background-color: rgba(252, 128, 4, 0.600);
+    padding: 2px 20px;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.two-btns a:hover,
+.div-detail-btn a:hover {
+    background-color: #FF8404;
+    box-shadow: 0 0 5px black;
+    transition: background-color 0.2s ease;
+    transition: box-shadow 0.3s ease;
+}
+.two-btns .login-btn {
+    margin-right: 10px;
+}

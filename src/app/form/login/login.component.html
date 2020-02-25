@@ -1,0 +1,27 @@
+<app-navi></app-navi>
+<div class="page-title-container">
+    <h1 class="page-title">Влез</h1>
+  </div>
+  
+  <form #logForm="ngForm" class="login-form form"  method="post">
+    <div class="input-container">
+      <div class="form-label-input">
+        <label for="inputEmail"><span>Имейл</span></label>
+        <input ngModel type="text" id="inputEmail" name="email" class="form-control" placeholder="Имейл" required=""
+          autofocus="">
+      </div>
+  
+      <div class="form-label-input">
+        <label for="inputPassword">Парола</label>
+        <input type="password" id="inputPassword" ngModel name="password" class="form-control" placeholder="Парола" required="">
+      </div>
+    </div>
+      <button class="btn login-btn" (click)="login(logForm.value)">Влез</button>
+    
+      <div class="div-have-no-acount">
+        <p class="have-no-acount"> Нямаш акаунт? Тогава 
+          <a routerLink="/register">Регистрирай се</a>
+        </p>
+      </div>
+  
+    </form>

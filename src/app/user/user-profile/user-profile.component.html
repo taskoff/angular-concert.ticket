@@ -1,0 +1,31 @@
+<app-navi></app-navi>
+
+<h1 class="page-title">Профил</h1>
+
+<div class="user-info-container">
+    <div class="img-container">
+        <img src="../../../assets/static/user.png" alt="">
+    </div>
+
+    <div class="user-info">
+    <p class="first-name">Име: {{firstName}}</p>
+    <p class="second-name">Фамилия: {{lastName}}</p>
+    <p class="first-name">Имейл: {{email}}</p>
+    </div>
+
+    <div class="ticket-info">
+        <h3>Резервирани билети:</h3>
+        <ul class="ticket-list">
+            <li *ngFor="let ticketListt of ticketList">
+            <span>Група: {{ticketListt.group}}</span>
+            <span>Град: {{ticketListt.city}}</span>
+            <span>Дата: {{ticketListt.date}}</span>
+            <span>Брой билети: {{ticketListt.tickets}}</span>
+            </li>
+        </ul>
+       
+    </div>
+</div>
+
+
+

@@ -1,0 +1,23 @@
+<app-navi></app-navi>
+<h1 class="page-title">Детайли</h1>
+
+<div class="details-container" *ngIf="concert" >
+    <div class="img-container" >
+        <img src={{concert.imageUrl}} alt="">
+    </div>
+    <div class="info-container">
+        <ul>
+        <li class="group-name">Изпълнител: {{concert.groupName}}</li>
+        <li class="data">Дата: {{concert.date}}</li>
+        <li class="city">Град: {{concert.city}}</li>
+        <li class="place">Място: {{concert.place}}</li>
+        <li class="price">Цена: <span>{{concert.ticketPrice}}</span> лв.</li>
+        <li class="tickets">Оставащи билети: <span>{{concert.ticketsCount}}</span> бр.</li>
+            <li class ><span>Избери брой билети</span><input #count count-tickets type="number" min="1" value="1">
+                </li>
+        </ul>
+    </div>
+    <div class="reserve-ticket-btn">
+        <a class="reserveTicketBtn" (click)="resTicket(concert._id, count.value, concert)" routerLink="/user">Резервирай сега!</a>
+    </div>
+</div>
