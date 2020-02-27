@@ -14,17 +14,32 @@
     </div>
 
     <div class="ticket-info">
-        <h3>Резервирани билети:</h3>
-        <ul class="ticket-list">
-            <li *ngFor="let ticketListt of ticketList">
-            <span>Група: {{ticketListt.group}}</span>
-            <span>Град: {{ticketListt.city}}</span>
-            <span>Дата: {{ticketListt.date}}</span>
-            <span>Брой билети: {{ticketListt.tickets}}</span>
-            </li>
-        </ul>
+        <h3>Резервирани билети: </h3>
+        <div class="loader" *ngIf="ticketList.lenght==0">
+           loading...
+        </div>
+        
+
+            <ul class="ticket-list">
+                
+                <li *ngFor="let ticketListt of ticketList">
+                    <span *ngIf="ticketListt.noTickets">{{ticketListt.noTickets}}</span>
+                    <div  *ngIf="!ticketListt.noTickets">
+                        <span>Група: {{ticketListt.group}}</span>
+                        <span>Град: {{ticketListt.city}}</span>
+                        <span>Дата: {{ticketListt.date}}</span>
+                        <span>Брой билети: {{ticketListt.tickets}}</span>
+                    </div>
+                
+                </li>
+            </ul>
+           
        
+        
+
     </div>
+
+    
 </div>
 
 

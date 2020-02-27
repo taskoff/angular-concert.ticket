@@ -10,6 +10,7 @@ import { FormService } from 'src/app/form/form.service';
 })
 export class NaviComponent implements OnInit {
   isLoggin: boolean = this.authService.isLogin;
+  
   constructor(private authService: AuthService,
     private concertService: ConcertService) {
       
@@ -24,7 +25,7 @@ export class NaviComponent implements OnInit {
     this.authService.logout(localStorage.authtoken)
   }
   getList() {
-    console.log(this.concertService.list$)
+   
     if(!this.concertService.list$){
       this.concertService.getConcertList('Basic', 'guest', 'guest');
     }

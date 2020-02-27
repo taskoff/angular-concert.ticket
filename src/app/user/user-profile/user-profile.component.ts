@@ -7,18 +7,21 @@ import { ConcertService } from 'src/app/concert/concert.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  ticketList: any[];
+  ticketList: any;
   email = localStorage.username;
   firstName = localStorage.firstName;
   lastName = localStorage.lastName;
   constructor(private concertService: ConcertService) { 
-    this.ticketList = this.concertService.userTicketsList
+    this.ticketList = this.concertService.userTicketsList;
+    // console.log(this.ticketList)
   }
-
+  
   ngOnInit() {
     // if (this.ticketList.length === 0) {
       this.concertService.checkUserTickets();
     // }
+    
+    
   }
 
 }

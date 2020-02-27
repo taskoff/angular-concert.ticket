@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ConcertService } from '../concert/concert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   appKey: string = 'kid_H1uBvknQL';
   appSecret: string = '7bc7d1ae9ce24ecc97a34af7d9251618'
   
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) { }
 
   register(firstName: string, secondName: string, username: string, password: string ){
         
@@ -74,6 +75,7 @@ export class AuthService {
   logout(authtoken: string){
     this.isLogin = false;
     this.router.navigate(['']);
+    this.concertService.userTicketsList = [];
     const headers = {
       method: 'POST',
       headers: {

@@ -88,7 +88,7 @@ export class ConcertService {
            let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
            let isGroup = false;
           
-          this.userTicketsList.forEach(g=>{
+           this.userTicketsList.forEach(g=>{
             if(g.group === currentGroup.group && g.date === currentGroup.date){
               g.tickets = currentGroup.tickets;
               isGroup = true;
@@ -101,8 +101,16 @@ export class ConcertService {
           }
          })
          
+        } 
+        })
+        if (this.userTicketsList.length === 0) {
+          this.userTicketsList.push({noTickets: 'Няма резервирани билети'})
         }
-        })})
+      })
+        
+
+      
+        
   }
 }
 
