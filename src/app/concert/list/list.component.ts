@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
-  getDetails(id) {
+  getDetails(id: string) {
     this.concertService.getConcertDetails(id);
   }
 }

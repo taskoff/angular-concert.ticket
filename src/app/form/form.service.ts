@@ -40,7 +40,7 @@ export class FormService {
 //        this.isLogin = true;
 //       //  this.userInfo = data;
 //        this.addInfoLocaleStorage(data);
-//        console.log(sessionStorage.authtoken)
+//        console.log(localStorage.authtoken)
       
 //     })
 //   }
@@ -69,7 +69,7 @@ export class FormService {
 //     console.log(headers.headers.Authorization)
 //     return this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/login`,body , headers).subscribe(data=>{
 //       this.addInfoLocaleStorage(data);
-//       console.log(sessionStorage.authtoken)
+//       console.log(localStorage.authtoken)
 //       this.router.navigate([''])
 //     });
 
@@ -84,17 +84,17 @@ export class FormService {
 //       }
 //     };
 //     this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/_logout`,{}, headers).subscribe(data=>{
-//       sessionStorage.clear()
+//       localStorage.clear()
 //     // this.router.navigate(['']);
-//     console.log(sessionStorage.authtoken)
+//     console.log(localStorage.authtoken)
 //     });
     
 //   }
 
 //   addInfoLocaleStorage(data) {
-//     sessionStorage.setItem('authtoken', data._kmd.authtoken);
-//                        sessionStorage.setItem('username', data.username);
-//                        sessionStorage.setItem('userId', data._id);
+//     localStorage.setItem('authtoken', data._kmd.authtoken);
+//                        localStorage.setItem('username', data.username);
+//                        localStorage.setItem('userId', data._id);
 //  }
   
 }

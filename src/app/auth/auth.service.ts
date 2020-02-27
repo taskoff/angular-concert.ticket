@@ -83,20 +83,20 @@ export class AuthService {
       }
     };
     this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/_logout`,{}, headers).subscribe(data=>{
-      sessionStorage.clear()
+      localStorage.clear()
     });
     
     
   }
 
   addInfoLocaleStorage(data) {
-    sessionStorage.setItem('authtoken', data._kmd.authtoken);
-                       sessionStorage.setItem('username', data.username);
-                       sessionStorage.setItem('userId', data._id);
-                       sessionStorage.setItem('authtoken', data._kmd.authtoken);
-                       sessionStorage.setItem('firstName', data.firstName);
-                       sessionStorage.setItem('lastName', data.secondName)
-                       sessionStorage.setItem('email', data.username)
+    localStorage.setItem('authtoken', data._kmd.authtoken);
+                       localStorage.setItem('username', data.username);
+                       localStorage.setItem('userId', data._id);
+                       localStorage.setItem('authtoken', data._kmd.authtoken);
+                       localStorage.setItem('firstName', data.firstName);
+                       localStorage.setItem('lastName', data.secondName)
+                       localStorage.setItem('email', data.username)
 
 
 

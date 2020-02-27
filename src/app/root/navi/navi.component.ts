@@ -21,7 +21,7 @@ export class NaviComponent implements OnInit {
   }
  
   logout() {
-    this.authService.logout(sessionStorage.authtoken)
+    this.authService.logout(localStorage.authtoken)
   }
   getList() {
     console.log(this.concertService.list$)

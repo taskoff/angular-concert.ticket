@@ -22,7 +22,7 @@ export class ConcertService {
           }
         };
       if (authtoken) {
-        headers.headers.Authorization = `Kinvey ${sessionStorage.authtoken}`;
+        headers.headers.Authorization = `Kinvey ${localStorage.authtoken}`;
       }
       return this.list$ =  this.http.get<any>(`https://baas.kinvey.com/appdata/kid_H1uBvknQL/concerts`, headers);
     }
@@ -33,7 +33,7 @@ export class ConcertService {
       const headers = {
       method: 'GET',
       headers: {
-        'Authorization': `Kinvey ${sessionStorage.authtoken}`,
+        'Authorization': `Kinvey ${localStorage.authtoken}`,
         'Content-Type': 'application/json'
       }
     };
@@ -41,9 +41,9 @@ export class ConcertService {
     this.concertDetail = this.http.get(`https://baas.kinvey.com/appdata/kid_H1uBvknQL/concerts/${id}`, headers)
   }
 
-  reserveTicket(id, count: number, concert) {
+  reserveTicket(id: string, count: number, concert) {
     const body = concert
-    const userId = sessionStorage.getItem('userId');
+    const userId = localStorage.getItem('userId');
       body.ticketsCount -= count;
       let userExist = false;
       body.users.forEach(e=>{
@@ -60,7 +60,7 @@ export class ConcertService {
       const headers = {
       method: 'PUT',
       headers: {
-        'Authorization': `Kinvey ${sessionStorage.authtoken}`,
+        'Authorization': `Kinvey ${localStorage.authtoken}`,
         'Content-Type': 'application/json'
       }
     };
@@ -72,7 +72,7 @@ export class ConcertService {
   checkUserTickets() {
 
       // this.list$.subscribe(d=>d.forEach(e=>{e.users.forEach(u=> {
-      //   if (u.userId === sessionStorage.userId) {
+      //   if (u.userId === localStorage.userId) {
           
       //     this.userTicketsList.push({group: e.groupName, city: e.city, tickets: u.ticket, date: e.date})
       //     console.log(this.userTicketsList)
@@ -82,7 +82,7 @@ export class ConcertService {
       // }))
        this.list$.subscribe(d=>{
         d.forEach(e=>{
-        let ticketList = e.users.filter(u=>u.userId === sessionStorage.userId)
+        let ticketList = e.users.filter(u=>u.userId === localStorage.userId)
         if (ticketList.length > 0) {
          ticketList.forEach(u=>{
            let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};

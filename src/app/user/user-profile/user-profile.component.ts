@@ -8,9 +8,9 @@ import { ConcertService } from 'src/app/concert/concert.service';
 })
 export class UserProfileComponent implements OnInit {
   ticketList: any[];
-  email = sessionStorage.username;
-  firstName = sessionStorage.firstName;
-  lastName = sessionStorage.lastName;
+  email = localStorage.username;
+  firstName = localStorage.firstName;
+  lastName = localStorage.lastName;
   constructor(private concertService: ConcertService) { 
     this.ticketList = this.concertService.userTicketsList
   }

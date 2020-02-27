@@ -61,6 +61,9 @@ h1.page-title {
     margin: auto;
     border-bottom: 4px solid rgba(133,110,92,0.700);
 }
+.ticket-list li {
+    list-style: none;
+}
 .ticket-list span,
 .user-info p {
     font-size: 1.8em;
