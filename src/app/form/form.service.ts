@@ -92,7 +92,7 @@ export class FormService {
 //   }
 
 //   addInfoLocaleStorage(data) {
-//     localStorage.setItem('authtoken', data._kmd.authtoken);
+//     localStorage.setItem('authtoken', data._kmd.authtoken)
 //                        localStorage.setItem('username', data.username);
 //                        localStorage.setItem('userId', data._id);
 //  }

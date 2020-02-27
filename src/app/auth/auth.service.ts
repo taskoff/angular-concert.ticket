@@ -13,9 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   register(firstName: string, secondName: string, username: string, password: string ){
-    // const appKey = 'kid_H1uBvknQL';
-    // const appSecret = '7bc7d1ae9ce24ecc97a34af7d9251618'
-    
+        
     const info = {
       firstName,
       secondName,

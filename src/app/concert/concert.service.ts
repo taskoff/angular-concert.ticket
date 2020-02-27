@@ -87,7 +87,7 @@ export class ConcertService {
          ticketList.forEach(u=>{
            let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
            let isGroup = false;
-          //  console.log(currentGroup)
+          
           this.userTicketsList.forEach(g=>{
             if(g.group === currentGroup.group && g.date === currentGroup.date){
               g.tickets = currentGroup.tickets;
