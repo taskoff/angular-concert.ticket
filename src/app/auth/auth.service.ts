@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ConcertService } from '../concert/concert.service';
+import { timeInterval } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -67,7 +68,7 @@ export class AuthService {
       let links = Array.from(document.getElementsByClassName('show-wen-login'));
       links.forEach(e=> console.log(e));
       this.router.navigate(['/concert/list'])
-    });
+    }, err=>this.errorHandler(err));
 
     
   }
@@ -104,6 +105,15 @@ export class AuthService {
  }
 
  
-  
+  errorHandler(err){
+    if (err.status === 401) {
+      console.log(err)
+      alert('Грешен имейл, или парола!')
+    } else {
+      this.router.navigate(['**'])
+      console.log(err)
+     setTimeout(()=>{alert(err.statusText)}, 2000) 
+    }
+  }
 
 }
