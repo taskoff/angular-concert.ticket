@@ -1,11 +1,11 @@
 <app-navi></app-navi>
 <h1 class="page-title">Концерти</h1>
-<div *ngIf="!(list$ | async) " class="loader-container">
+<div *ngIf="!(list)" class="loader-container">
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 </div>
-<div  class="concert-list-container" *ngIf="list$ | async">
+<div  class="concert-list-container" *ngIf="list">
     <div class="concert-list">
-        <div class="concert-container" *ngFor="let concert of list$ | async">
+        <div class="concert-container" *ngFor="let concert of list">
             <div class="group-img-container">
             <img src={{concert.imageUrl}} alt="">
             </div>
