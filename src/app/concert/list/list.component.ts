@@ -26,3 +26,4 @@ export class ListComponent implements OnInit {
     this.concertService.getConcertDetails(id);
   }
 }
+// 
