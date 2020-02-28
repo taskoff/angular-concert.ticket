@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -69,7 +75,7 @@ export class ConcertService {
     .subscribe(d=> console.log(d))
   }
 
-  checkUserTickets() {
+  checkUserTickets () {
 
       // this.list$.subscribe(d=>d.forEach(e=>{e.users.forEach(u=> {
       //   if (u.userId === localStorage.userId) {
@@ -80,34 +86,48 @@ export class ConcertService {
       // })
         
       // }))
-       this.list$.subscribe(d=>{
-        d.forEach(e=>{
-        let ticketList = e.users.filter(u=>u.userId === localStorage.userId)
-        if (ticketList.length > 0) {
-         ticketList.forEach(u=>{
-           let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
-           let isGroup = false;
+      //  this.list$.subscribe(d=>{
+      //   d.forEach(e=>{
+      //   let ticketList = e.users.filter(u=>u.userId === localStorage.userId)
+      //   if (ticketList.length > 0) {
+      //    ticketList.forEach(u=>{
+      //      let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
+      //      let isGroup = false;
           
-           this.userTicketsList.forEach(g=>{
-            if(g.group === currentGroup.group && g.date === currentGroup.date){
-              g.tickets = currentGroup.tickets;
-              isGroup = true;
+      //      this.userTicketsList.forEach(g=>{
+      //       if(g.group === currentGroup.group && g.date === currentGroup.date){
+      //         g.tickets = currentGroup.tickets;
+      //         isGroup = true;
              
-            } 
+      //       } 
 
-          });
-          if (!isGroup) {
-            this.userTicketsList.push(currentGroup)
-          }
-         })
+      //     });
+      //     if (!isGroup) {
+      //       this.userTicketsList.push(currentGroup)
+      //     }
+      //    })
          
-        } 
+      //   } 
+      //   })
+      //   if (this.userTicketsList.length === 0) {
+      //     this.userTicketsList.push({noTickets: 'Няма резервирани билети'})
+      //   }
+      // })
+      
+      return this.list$.pipe(map(d=>{
+        let data = []
+        d.forEach(e=>{
+          e.users.forEach(u=>{
+            if (u.userId === localStorage.userId) {
+              data.push({group: e.groupName, city: e.city, date: e.date, tickets: u.ticket}) 
+            }
+          })
         })
-        if (this.userTicketsList.length === 0) {
-          this.userTicketsList.push({noTickets: 'Няма резервирани билети'})
-        }
-      })
+        console.log(data)
+       return data;
         
+      }))
+      
 
       
         
