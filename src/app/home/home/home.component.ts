@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   getList() {
-    console.log(this.concertService.list$)
+    
     if (!this.concertService.list$) {
     this.concertService.getConcertList('Basic', 'guest', 'guest');
     }

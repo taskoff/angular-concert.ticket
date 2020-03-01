@@ -4,3 +4,28 @@
     /* max-width: 60%; */
     margin-right: 250px;
 }
+
+.form-label-input {
+    position: relative;
+}
+
+.requred-conditions {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1;
+    background-color: #FFE5CC;
+    
+}
+.requred-conditions p {
+    margin: 0;
+    padding: 0 3px;
+    color:#990000;
+    
+    /* border: 1px solid black; */
+    text-align: left;
+}
+.required-info p {
+    margin: 0;
+    margin-left: 25%;
+}

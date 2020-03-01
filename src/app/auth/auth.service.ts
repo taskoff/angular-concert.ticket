@@ -65,8 +65,8 @@ export class AuthService {
       this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/login`,body , headers).subscribe(data=>{
       this.addInfoLocaleStorage(data);
       this.isLogin = true;
-      let links = Array.from(document.getElementsByClassName('show-wen-login'));
-      links.forEach(e=> console.log(e));
+      // let links = Array.from(document.getElementsByClassName('show-wen-login'));
+      // links.forEach(e=> console.log(e));
       this.router.navigate(['/concert/list'])
     }, err=>this.errorHandler(err));
 
