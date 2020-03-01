@@ -16,12 +16,12 @@ h1.page-title {
 .concert-list {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 .concert-container {
     padding-top: 30px;
     padding-bottom: 30px;
-    min-width: 32%;
+    width: 31%;
     border: 1px solid white;
     margin: 10px;
     border-radius: 5px;
@@ -38,13 +38,19 @@ h1.page-title {
     font-size: 1.5em;
     color: white;
     text-shadow: 2px 2px 2px black;
-    
+    position: relative;
     
 }
-
+.last-chance {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: red;
+    transform: rotate(30deg);
+}
 .group-img-container {
     position: relative;
-    min-width: 300px;
+    /* min-width: 300px; */
     margin: 0 30px;
     overflow: hidden;
     border-radius: 5px;

@@ -16,7 +16,7 @@
         <input type="password" id="inputPassword" ngModel name="password" class="form-control" placeholder="Парола" required="">
       </div>
     </div>
-      <button class="btn login-btn" (click)="login(logForm.value)">Влез</button>
+      <button class="btn login-btn" [disabled]="logForm.invalid" (click)="login(logForm.value)">Влез</button>
     
       <div class="div-have-no-acount">
         <p class="have-no-acount"> Нямаш акаунт? Тогава 

@@ -12,7 +12,7 @@
         <li class="city">Град: {{concert.city}}</li>
         <li class="place">Място: {{concert.place}}</li>
         <li class="price">Цена: <span>{{concert.ticketPrice}}</span> лв.</li>
-        <li class="tickets">Оставащи билети: <span>{{concert.ticketsCount}}</span> бр.</li>
+        <li class="tickets" >Оставащи билети: <span [class.red]="concert.ticketsCount < 11">{{concert.ticketsCount}}</span> бр.</li>
             <li class ><span>Избери брой билети</span><input #count count-tickets type="number" min="1" value="1">
                 </li>
         </ul>
