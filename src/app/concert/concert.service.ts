@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,9 @@ export class ConcertService {
   list$: Observable<any>;
   concertDetail;
   userTicketsList = [];
+  appKey: string ;
+  appSecret: string;
+  collection: string;
   
   constructor(private http: HttpClient) { }
   
@@ -30,7 +34,7 @@ export class ConcertService {
       if (authtoken) {
         headers.headers.Authorization = `Kinvey ${localStorage.authtoken}`;
       }
-      return this.list$ =  this.http.get<any>(`https://baas.kinvey.com/appdata/kid_H1uBvknQL/concerts`, headers);
+      return this.list$ =  this.http.get<any>(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}`, headers);
     }
     }
   
@@ -44,7 +48,7 @@ export class ConcertService {
       }
     };
 
-    this.concertDetail = this.http.get(`https://baas.kinvey.com/appdata/kid_H1uBvknQL/concerts/${id}`, headers)
+    this.concertDetail = this.http.get(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, headers)
   }
 
   reserveTicket(id: string, count: number, concert) {
@@ -71,7 +75,7 @@ export class ConcertService {
       }
     };
 
-    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/kid_H1uBvknQL/concerts/${id}`, body, headers)
+    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
     .subscribe(d=> console.log(d))
   }
 

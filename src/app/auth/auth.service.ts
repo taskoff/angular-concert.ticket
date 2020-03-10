@@ -10,9 +10,14 @@ import { timeInterval } from 'rxjs/operators';
 export class AuthService {
   isLogin: boolean = false;
   appKey: string = 'kid_H1uBvknQL';
-  appSecret: string = '7bc7d1ae9ce24ecc97a34af7d9251618'
+  appSecret: string = '7bc7d1ae9ce24ecc97a34af7d9251618';
+  collection: string = 'concerts';
   
-  constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) { }
+  constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) {
+    this.concertService.appKey = this.appKey;
+    this.concertService.appSecret = this.appSecret;
+    this.concertService.collection = this.collection;
+   }
 
   register(firstName: string, secondName: string, username: string, password: string ){
         
@@ -33,12 +38,12 @@ export class AuthService {
       
     };
 
-    this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL`,body, headers).subscribe(data=>{
+    this.http.post(`https://baas.kinvey.com/user/${this.appKey}`,body, headers).subscribe(data=>{
        this.isLogin = true;
        
        this.addInfoLocaleStorage(data);
        this.router.navigate(['/concert/list']);
-    })
+    }, err=>this.errorHandler(err))
   }
 
   
@@ -46,8 +51,7 @@ export class AuthService {
   
   
   login(email:string, password:string) {
-    // const appKey = 'kid_H1uBvknQL';
-    // const appSecret = '7bc7d1ae9ce24ecc97a34af7d9251618';
+    
     const data = {
       username: email,
       password: password
@@ -62,11 +66,9 @@ export class AuthService {
       }
     };
     
-      this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/login`,body , headers).subscribe(data=>{
+      this.http.post(`https://baas.kinvey.com/user/${this.appKey}/login`,body , headers).subscribe(data=>{
       this.addInfoLocaleStorage(data);
       this.isLogin = true;
-      // let links = Array.from(document.getElementsByClassName('show-wen-login'));
-      // links.forEach(e=> console.log(e));
       this.router.navigate(['/concert/list'])
     }, err=>this.errorHandler(err));
 
@@ -83,7 +85,7 @@ export class AuthService {
         'Authorization': `Kinvey ${authtoken}`,
       }
     };
-    this.http.post(`https://baas.kinvey.com/user/kid_H1uBvknQL/_logout`,{}, headers).subscribe(data=>{
+    this.http.post(`https://baas.kinvey.com/user/${this.appKey}/_logout`,{}, headers).subscribe(data=>{
       localStorage.clear()
     });
     
@@ -109,6 +111,8 @@ export class AuthService {
     if (err.status === 401) {
       console.log(err)
       alert('Грешен имейл, или парола!')
+    } else if(err.status === 409){
+      alert('Вече има такъв потребител!')
     } else {
       this.router.navigate(['**'])
       console.log(err)

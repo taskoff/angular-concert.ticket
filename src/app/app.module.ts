@@ -12,6 +12,7 @@ import { FormModule } from './form/form.module';
 import { ConcertModule } from './concert/concert.module';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UserModule } from './user/user.module';
     HomeModule,
     FormModule,
     ConcertModule,
-    UserModule
+    UserModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

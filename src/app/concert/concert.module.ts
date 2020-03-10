@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { ConcertRoutingModule } from './concert-routing.module';
-import { ConcertService } from './concert.service';
 import { RootModule } from '../root/root.module';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -13,7 +13,8 @@ import { RootModule } from '../root/root.module';
   imports: [
     CommonModule,
     ConcertRoutingModule,
-    RootModule
+    RootModule, 
+    AuthModule
   ],
   
 })
