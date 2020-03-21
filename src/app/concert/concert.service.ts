@@ -53,9 +53,6 @@ export class ConcertService {
   }
 
   reserveTicket(id: string, count: number, concert) {
-    console.log(this.appKey)
-    console.log(localStorage.authtoken)
-    console.log(id)
     const body = concert
     const userId = localStorage.getItem('userId');
       body.ticketsCount -= count;
@@ -78,8 +75,6 @@ export class ConcertService {
         'Content-Type': 'application/json'
       }
     };
-    console.log(body)
-    console.log(headers)
     this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
     .subscribe(d=> console.log(d))
   }
@@ -132,7 +127,6 @@ export class ConcertService {
             }
           })
         })
-        console.log(data)
        return data;
         
       }))
