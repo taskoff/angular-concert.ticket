@@ -9,8 +9,8 @@ import { timeInterval } from 'rxjs/operators';
 })
 export class AuthService {
   isLogin: boolean = false;
-  appKey: string = 'kid_H1uBvknQL';
-  appSecret: string = '7bc7d1ae9ce24ecc97a34af7d9251618';
+  appKey: string = 'kid_S1DTF3XU8';
+  appSecret: string = '22057f59dfa64487b994c6bbf88bf8a0';
   collection: string = 'concerts';
   
   constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) {

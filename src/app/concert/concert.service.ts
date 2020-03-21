@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { tap } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 
 
@@ -52,6 +53,9 @@ export class ConcertService {
   }
 
   reserveTicket(id: string, count: number, concert) {
+    console.log(this.appKey)
+    console.log(localStorage.authtoken)
+    console.log(id)
     const body = concert
     const userId = localStorage.getItem('userId');
       body.ticketsCount -= count;
@@ -74,8 +78,9 @@ export class ConcertService {
         'Content-Type': 'application/json'
       }
     };
-
-    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
+    console.log(body)
+    console.log(headers)
+    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
     .subscribe(d=> console.log(d))
   }
 
