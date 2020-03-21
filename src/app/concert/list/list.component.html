@@ -8,6 +8,7 @@
         <div class="concert-container" *ngFor="let concert of list">
             <div class="group-img-container">
             <img src={{concert.imageUrl}} alt="">
+            <!-- <img src="../concerts-img/acdc.jpg"alt=""> -->
             </div>
             <ul class="concert-info" >
                 <li class="last-chance" *ngIf="concert.ticketsCount < 70">Последен шанс!</li>
