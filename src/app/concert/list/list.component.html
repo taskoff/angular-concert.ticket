@@ -15,7 +15,7 @@
                 <li class="last-chance" *ngIf="concert.ticketsCount == 0">Изчерпани!</li>
             <li class="concert-group">Група: {{concert.groupName}}</li>
             <li class="concert-date">Дата: {{concert.date}}</li>
-            <li class="concert-place">Място: {{concert.city}}</li>
+            <li class="concert-place">Град: {{concert.city}}</li>
             </ul>
             <div class="two-btns" *ngIf="!isLoggin">
                 <span class="login-btn"><a routerLink="/login">Влез</a></span>

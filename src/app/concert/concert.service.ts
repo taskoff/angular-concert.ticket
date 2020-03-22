@@ -89,43 +89,7 @@ export class ConcertService {
 
   checkUserTickets () {
 
-      // this.list$.subscribe(d=>d.forEach(e=>{e.users.forEach(u=> {
-      //   if (u.userId === localStorage.userId) {
-          
-      //     this.userTicketsList.push({group: e.groupName, city: e.city, tickets: u.ticket, date: e.date})
-      //     console.log(this.userTicketsList)
-      //   }
-      // })
-        
-      // }))
-      //  this.list$.subscribe(d=>{
-      //   d.forEach(e=>{
-      //   let ticketList = e.users.filter(u=>u.userId === localStorage.userId)
-      //   if (ticketList.length > 0) {
-      //    ticketList.forEach(u=>{
-      //      let currentGroup = {group: e.groupName, city: e.city, tickets: u.ticket, date: e.date};
-      //      let isGroup = false;
-          
-      //      this.userTicketsList.forEach(g=>{
-      //       if(g.group === currentGroup.group && g.date === currentGroup.date){
-      //         g.tickets = currentGroup.tickets;
-      //         isGroup = true;
-             
-      //       } 
-
-      //     });
-      //     if (!isGroup) {
-      //       this.userTicketsList.push(currentGroup)
-      //     }
-      //    })
-         
-      //   } 
-      //   })
-      //   if (this.userTicketsList.length === 0) {
-      //     this.userTicketsList.push({noTickets: 'Няма резервирани билети'})
-      //   }
-      // })
-      
+            
       return this.list$.pipe(map(d=>{
         let data = []
         d.forEach(e=>{
