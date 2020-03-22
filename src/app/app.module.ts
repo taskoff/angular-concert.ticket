@@ -30,9 +30,10 @@ import { AuthModule } from './auth/auth.module';
     RootModule,
     HomeModule,
     FormModule,
+    AuthModule,
     ConcertModule,
     UserModule,
-    AuthModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

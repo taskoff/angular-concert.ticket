@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-import { tap } from 'rxjs/operators';
 import { RouterLink, Router } from '@angular/router';
 
 
@@ -84,6 +83,8 @@ export class ConcertService {
     .subscribe(d=> {
       this.router.navigate(['/user'])
     })
+    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
+    .subscribe(d=> console.log(d))
   }
 
   checkUserTickets () {
@@ -134,7 +135,6 @@ export class ConcertService {
             }
           })
         })
-        console.log(data)
        return data;
         
       }))
