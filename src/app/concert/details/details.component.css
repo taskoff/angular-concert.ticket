@@ -97,3 +97,10 @@ h1.page-title {
 .red {
     color: red;
 }
+
+
+@media (max-width: 600px) {
+    .details-container {
+        max-width: 90%;
+    }
+}

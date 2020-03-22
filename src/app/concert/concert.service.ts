@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { tap } from 'rxjs/operators';
+import { RouterLink, Router } from '@angular/router';
 
 
 
@@ -20,7 +21,7 @@ export class ConcertService {
   appSecret: string;
   collection: string;
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   
   getConcertList(type: string, username:string, password: string, authtoken?) {
     if (!this.list$) {
@@ -52,6 +53,10 @@ export class ConcertService {
   }
 
   reserveTicket(id: string, count: number, concert) {
+    if (count > concert.ticketsCount) {
+      alert('Няма толкова билети!');
+      return;
+    }
     const body = concert
     const userId = localStorage.getItem('userId');
       body.ticketsCount -= count;
@@ -76,7 +81,9 @@ export class ConcertService {
     };
 
     this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
-    .subscribe(d=> console.log(d))
+    .subscribe(d=> {
+      this.router.navigate(['/user'])
+    })
   }
 
   checkUserTickets () {

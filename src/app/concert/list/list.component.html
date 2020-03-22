@@ -10,7 +10,8 @@
             <img src={{concert.imageUrl}} alt="">
             </div>
             <ul class="concert-info" >
-                <li class="last-chance" *ngIf="concert.ticketsCount < 70">Последен шанс!</li>
+                <li class="last-chance" *ngIf="concert.ticketsCount < 21 && concert.ticketsCount > 0">Последен шанс!</li>
+                <li class="last-chance" *ngIf="concert.ticketsCount == 0">Изчерпани!</li>
             <li class="concert-group">Група: {{concert.groupName}}</li>
             <li class="concert-date">Дата: {{concert.date}}</li>
             <li class="concert-place">Място: {{concert.city}}</li>

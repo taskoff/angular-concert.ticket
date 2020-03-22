@@ -12,12 +12,12 @@
         <li class="city">Град: {{concert.city}}</li>
         <li class="place">Място: {{concert.place}}</li>
         <li class="price">Цена: <span>{{concert.ticketPrice}}</span> лв.</li>
-        <li class="tickets" >Оставащи билети: <span [class.red]="concert.ticketsCount < 11">{{concert.ticketsCount}}</span> бр.</li>
-            <li class ><span>Избери брой билети</span><input #count count-tickets type="number" min="1" value="1">
+        <li class="tickets" >Оставащи билети: <span [class.red]="concert.ticketsCount < 21">{{concert.ticketsCount}}</span> бр.</li>
+            <li class ><span>Избери брой билети</span><input #count count-tickets type="number" min="1" max="{{concert.ticketsCount}}" value="1">
                 </li>
         </ul>
     </div>
     <div class="reserve-ticket-btn">
-        <a class="reserveTicketBtn" (click)="resTicket(concert._id, count.value, concert)" routerLink="/user">Резервирай сега!</a>
+        <a  *ngIf="concert.ticketsCount>0 " class="reserveTicketBtn" (click)="resTicket(concert._id, count.value, concert)" >Резервирай сега!</a>
     </div>
 </div>

@@ -65,3 +65,13 @@ form .btn:hover {
     transition: background-color 0.2s ease;
     transition: box-shadow 0.3s ease;
 }
+
+
+@media (max-width: 600px) {
+    .form {
+        max-width: 90%;
+    }
+    .input-container {
+        margin-right: 0;
+    }
+}
