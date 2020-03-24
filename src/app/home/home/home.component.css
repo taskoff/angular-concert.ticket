@@ -6,12 +6,32 @@ h1.site-title {
     text-align: center;
     text-shadow: 3px 3px 5px black;
     margin-top: 150px;
+    transform: translateX(-150px);
+    opacity: 0;
 
 }
+h1.site-title.loaded {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.5s ease-in 1s, opacity 0.5s ease-in 1s;
+}
+
 .home-page-button {
+    max-width: 50%;
+    margin: auto;
     text-align: center;
     padding-top: 60px;
+    transform: translateX(150px);
+    opacity: 0;
 }
+
+
+.home-page-button.loaded {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.5s ease 1s, opacity 1s ease 1s;
+}
+.home-page-button {transition-delay: 5s}
 a.show-concerts {
     text-decoration: none;
     color:#fff;
@@ -31,4 +51,14 @@ a.show-concerts:hover {
     transition: background-color 0.3s ease;
     transition: box-shadow 0.3s ease;
 
+}
+
+
+/* ===================== responsive CSS ================ */
+
+
+@media (max-width: 600px) {
+    .home-page-button {
+        max-width: 100%;
+    }
 }

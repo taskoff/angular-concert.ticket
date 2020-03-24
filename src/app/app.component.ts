@@ -14,7 +14,9 @@ export class AppComponent {
 
   }
 
-//   ngOnInit() {
-//     document.body.classList.add('bg-img');
-// }
+  ngOnInit() {
+    // window.addEventListener('load', function(){
+    //   this.document.querySelector('body').classList.add('loaded');
+    // })
+}
 }

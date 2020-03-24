@@ -12,6 +12,11 @@ export class HomeComponent implements OnInit {
   constructor(private concertService: ConcertService, private authService: AuthService) { }
   
   ngOnInit() {
+    setTimeout(()=>{
+      document.querySelector('.home-page-button').classList.add('loaded');
+      document.querySelector('.site-title').classList.add('loaded');
+    }, 1000)
+
   }
 
   getList() {

@@ -17,8 +17,7 @@ export class NaviComponent implements OnInit {
      }
 
   ngOnInit() {
-    
-
+    setTimeout(()=>{document.querySelector('.site-navi').classList.add('loaded');}, 1000)
   }
  
   logout() {

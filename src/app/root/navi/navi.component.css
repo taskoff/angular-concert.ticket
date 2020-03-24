@@ -41,7 +41,20 @@
 
 .site-navi li {
     list-style: none;
+    transform: translateY(-6em);
+    opacity: 0;
 }
+
+.site-navi.loaded li {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease-in, opacity 0.9s ease;
+}
+.site-navi li:nth-child(4) {transition-delay: 0.1s;}
+.site-navi li:nth-child(3) {transition-delay: 0.2s;}
+.site-navi li:nth-child(2) {transition-delay: 0.3s;}
+.site-navi li:nth-child(1) {transition-delay: 0.4s;}
+
 
 .site-navi {
     display: flex;
@@ -52,6 +65,7 @@
 }
 .primary-menu {
     /* margin-left: auto; */
+    padding-top: 30px;
 }
 
 .site-navi ul {

@@ -107,6 +107,12 @@ export class ConcertService {
       
         
   }
+
+  naviAnimation () {
+    
+  }
 }
+
+  
 
 
