@@ -10,7 +10,7 @@
             <li><a routerLink="/concert" (click)="getList()">Концерти</a></li>
             <li *ngIf="isLoggin" id="navi-profile" class="show-wen-login"><a  routerLink="/user">Профил</a></li>
             <li *ngIf="!isLoggin" id="navi-login" class="show-wen-noLogin"><a routerLink="/login" >Влез</a></li>
-            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a routerLink="" (click)='logout()' >Излез</a></li>
+            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a href="/" (click)='logout()' >Излез</a></li>
             <li *ngIf="!isLoggin" id="navi-register" class="show-wen-noLogin"><a routerLink="/register" >Регистрирай се</a></li>
         </ul>
         

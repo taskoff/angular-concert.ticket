@@ -84,6 +84,10 @@
     color: white;
     font-size: 1.5em;
     display: none;
+    padding: 0.5em;
+    background-color: rgba(252, 128, 4, 0.500);
+    border: 1px solid white;
+    border-radius: 3px;
 }
 
 @media (max-width: 600px) {

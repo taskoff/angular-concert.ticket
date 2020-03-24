@@ -29,3 +29,31 @@
     margin: 0;
     margin-left: 25%;
 }
+
+/* ==================== responsive CSS =============== */
+
+@media (max-width: 600px) {
+    .input-container {
+        padding-left: 10px;
+    }
+    .form-label-input {
+        display: block;
+    }
+    
+    form .form-label-input {
+        text-align: left;
+        
+    }
+    form .form-label-input label {
+        display: block;
+    }
+    form .form-label-input input {
+        width: 90%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    .required-info p{
+        margin: 0;
+        text-align: left;
+    }
+}

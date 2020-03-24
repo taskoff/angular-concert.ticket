@@ -103,4 +103,7 @@ h1.page-title {
     .details-container {
         max-width: 90%;
     }
+    .info-container ul {
+        max-width: 100%;
+    }
 }

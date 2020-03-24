@@ -77,7 +77,7 @@ export class AuthService {
 
   logout(authtoken: string){
     this.isLogin = false;
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
     this.concertService.userTicketsList = [];
     const headers = {
       method: 'POST',
