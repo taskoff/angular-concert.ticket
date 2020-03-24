@@ -5,12 +5,5 @@
     margin-right: 250px;
 }
 
-@media (max-width: 600px) {
-    .login-form .input-container {
-        margin: auto;
-    }
-    .input-container .form-label-input {
-        text-align: center;
-    }
-}
+
 
