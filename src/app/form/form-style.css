@@ -71,7 +71,13 @@ form .btn:hover {
     .form {
         max-width: 90%;
     }
-    .input-container {
-        margin-right: 0;
+    .register-form .input-container,
+    .login-form .input-container {
+        margin: auto;
+    }
+    .input-container .form-label-input {
+        text-align: right;
+        padding-right: 20px;
     }
 }
+

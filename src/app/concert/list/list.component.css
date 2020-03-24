@@ -99,3 +99,14 @@ h1.page-title {
 .two-btns .login-btn {
     margin-right: 10px;
 }
+
+/* ================== responsive ========================= */
+
+@media(max-width: 600px) {
+    .concert-list {
+        display: block;
+    }
+    .concert-container {
+        width: 95%;
+    }
+}
