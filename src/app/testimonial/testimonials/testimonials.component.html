@@ -7,12 +7,26 @@
                 <textarea #textArea name="" id="" placeholder="Твоето мнение...." ></textarea>
             </div>
             <div class="send-btn">
-                <button (click)="sendTestimonial(textArea.value)">Изпрати</button>
+                <button (click)="send(textArea.value)">Изпрати</button>
             </div>
             
         </div>
     </div>
     <div class="all-testimoniels-container">
-
+        <div class="testimonial-container" *ngFor="let t of list$ |async">
+            <div class="testimonial-box">
+                <p>{{t.testimonial}}</p>
+            </div>
+            <div class="author-box">
+                <span>Автор:</span>
+                <span>{{t.author.firstName}}</span>
+                <span>{{t.author.lastName}}</span>
+            </div>
+            
+        </div>
+        <!-- <ul>
+            <li *ngFor="let t of list$ |async">{{t.author.firstName}}</li>
+        </ul> -->
+        {{list$ | async}}
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
-import { HttpClient } from '@angular/common/http';
+import { TestimonialService } from '../testimonial.service';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-testimonials',
@@ -9,23 +10,29 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TestimonialsComponent implements OnInit {
   collection = 'testimonials';
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  list$;
+  constructor(private testimonialService: TestimonialService) { }
 
   ngOnInit() {
+   this.list$ = this.testimonialService.getTestimonialList()
   }
-  sendTestimonial(text) {
-    const headers = this.authService.makeHeaders('POST', 'Kinvey');
-    const body = {
-      testimonial: text,
-      author: {
-        firstName: localStorage.getItem('firstName'),
-        lastName: localStorage.getItem('lastName')
-      }
-    }
+  send(text) {
+    this.testimonialService.sendTestimonial(text);
+  }
+
+  // sendTestimonial(text) {
+  //   const headers = this.authService.makeHeaders('POST', 'Kinvey');
+  //   const body = {
+  //     testimonial: text,
+  //     author: {
+  //       firstName: localStorage.getItem('firstName'),
+  //       lastName: localStorage.getItem('lastName')
+  //     }
+  //   }
     
-    this.http.post(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, body, headers)
-    .subscribe(d=> {
-     console.log(d)
-    })
-  }
+  //   this.http.post(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, body, headers)
+  //   .subscribe(d=> {
+  //    console.log(d)
+  //   })
+  // }
 }

@@ -21,7 +21,28 @@ h1 {
     box-shadow: 0 0 10px black;
     background-color:rgba(133,110,92,0.500);
 }
+.testimonial-container {
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .text-box textarea {
     min-width: 80%;
     min-height: 100px;
+}
+.testimonial-box {
+    max-width: 80%;
+    min-height: 100px;
+    margin: auto;
+    background-color: #FFE5CC;
+    text-align: left;
+    
+}
+.author-box {
+    max-width: 80%;
+    margin: auto;
+    text-align: right;
+    padding: 10px 0;
+}
+.author-box span {
+    padding: 5px 10px;
 }
