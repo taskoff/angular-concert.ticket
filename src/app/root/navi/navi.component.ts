@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ConcertService } from 'src/app/concert/concert.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { FormService } from 'src/app/form/form.service';
 
 @Component({
   selector: 'app-navi',
@@ -10,6 +9,7 @@ import { FormService } from 'src/app/form/form.service';
 })
 export class NaviComponent implements OnInit {
   isLoggin: boolean = this.authService.isLogin;
+  isLoaded: Boolean;
   
   constructor(private authService: AuthService,
     private concertService: ConcertService) {
@@ -17,18 +17,18 @@ export class NaviComponent implements OnInit {
      }
 
   ngOnInit() {
-    setTimeout(()=>{document.querySelector('.site-navi').classList.add('loaded');}, 1000)
+    setTimeout(()=>{this.isLoaded = true;}, 1000)
   }
  
   logout() {
-    this.authService.logout(localStorage.authtoken)
+    this.authService.logout()
   }
-  getList() {
+  // getList() {
    
-    if(!this.concertService.list$){
-      this.concertService.getConcertList('Basic', 'guest', 'guest');
-    }
+  //   if(!this.concertService.list$){
+  //     this.concertService.getConcertList('Basic');
+  //   }
     
-  }
+  // }
 }
 // 

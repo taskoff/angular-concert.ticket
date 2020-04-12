@@ -98,7 +98,7 @@ export class AuthService {
     
   }
 
-  logout(authtoken: string){
+  logout(){
     this.isLogin = false;
     // this.router.navigate(['']);
     // this.concertService.userTicketsList = [];
@@ -111,8 +111,9 @@ export class AuthService {
     const headers = this.makeHeaders('Post', 'Kinvey')
     this.http.post(`${this.url}user/${this.appKey}/_logout`,{}, headers).subscribe(data=>{
       localStorage.clear()
+
     });
-    
+    this.router.navigate(['']);
     
   }
 

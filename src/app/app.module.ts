@@ -14,6 +14,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
+import { TestimonialModule } from './testimonial/testimonial.module';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { AuthService } from './auth/auth.service';
     AuthModule,
     ConcertModule,
     UserModule,
-    
+    TestimonialModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

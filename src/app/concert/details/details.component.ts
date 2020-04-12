@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ConcertService } from '../concert.service';
-import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +20,6 @@ concert = this.concertService.concertDetail;
 
   resTicket(id, count, concert) {
     this.concertService.reserveTicket(id, count, concert)
-    // this.concertService.checkUserTickets()
   }
   
 }

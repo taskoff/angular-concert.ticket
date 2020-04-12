@@ -23,7 +23,7 @@ export class ConcertService {
   
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
   
-  getConcertList(type: string, username:string, password: string, authtoken?) {
+  getConcertList(authtoken?) {
     
       // const headers = {
       //   method: 'GET',
@@ -37,7 +37,7 @@ export class ConcertService {
       if (authtoken) {
         headers.headers.Authorization = `Kinvey ${localStorage.authtoken}`;
       } else {
-        headers.headers.Authorization = `Basic ${btoa(`${username}:${password}`)}`
+        headers.headers.Authorization = `Basic ${btoa(`guest:guest`)}`
       }
       return this.list$ =  this.http.get<any>(`${this.url}appdata/${this.appKey}/${this.collection}`, headers);
     

@@ -1,16 +1,17 @@
 <input type="checkbox" id="nav-toggle" class="nav-toggle">
-<nav class="site-navi">
+<nav class="site-navi" [ngClass]="{loaded: isLoaded}">
     <div class="site-logo"></div>
     <!-- <div class="concerts-navi">
         <p><a href="">Концерти</a></p>
     </div>  -->
     <div class="primary-menu">
         <ul>
-            <li><a routerLink="" >Начало</a></li>
-            <li><a routerLink="/concert" (click)="getList()">Концерти</a></li>
+            <li *ngIf="!isLoggin"><a routerLink="" >Начало</a></li>
+            <li><a routerLink="/concert" >Концерти</a></li>
             <li *ngIf="isLoggin" id="navi-profile" class="show-wen-login"><a  routerLink="/user">Профил</a></li>
             <li *ngIf="!isLoggin" id="navi-login" class="show-wen-noLogin"><a routerLink="/login" >Влез</a></li>
-            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a href="/" (click)='logout()' >Излез</a></li>
+            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a routerLink="/testimonial"  >Мнения</a></li>
+            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a  (click)='logout()' >Излез</a></li>
             <li *ngIf="!isLoggin" id="navi-register" class="show-wen-noLogin"><a routerLink="/register" >Регистрирай се</a></li>
         </ul>
         
