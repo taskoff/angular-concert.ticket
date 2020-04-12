@@ -1,0 +1,18 @@
+<app-navi></app-navi>
+<h1>Мнения и Препоръки</h1>
+<div class="testimonials-container">
+    <div class="send-testemonial-container">
+        <div >
+            <div class="text-box">
+                <textarea #textArea name="" id="" placeholder="Твоето мнение...." ></textarea>
+            </div>
+            <div class="send-btn">
+                <button (click)="sendTestimonial(textArea.value)">Изпрати</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="all-testimoniels-container">
+
+    </div>
+</div>
