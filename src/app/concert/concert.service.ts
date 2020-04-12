@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 
 
@@ -20,7 +21,7 @@ export class ConcertService {
   appSecret: string;
   collection: string;
   
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
   
   getConcertList(type: string, username:string, password: string, authtoken?) {
     if (!this.list$) {
@@ -47,7 +48,8 @@ export class ConcertService {
         'Content-Type': 'application/json'
       }
     };
-
+    
+    
     this.concertDetail = this.http.get(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, headers)
   }
 

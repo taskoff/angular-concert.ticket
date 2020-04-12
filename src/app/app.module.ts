@@ -13,6 +13,7 @@ import { ConcertModule } from './concert/concert.module';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

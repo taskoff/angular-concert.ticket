@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ConcertService } from '../concert/concert.service';
-import { timeInterval } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +11,36 @@ export class AuthService {
   appKey: string = 'kid_S1DTF3XU8';
   appSecret: string = '22057f59dfa64487b994c6bbf88bf8a0';
   collection: string = 'concerts';
+  url: string = 'https://baas.kinvey.com/';
   
   constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) {
     this.concertService.appKey = this.appKey;
     this.concertService.appSecret = this.appSecret;
     this.concertService.collection = this.collection;
+
    }
 
+   createAuthorization(type: string) {
+    return type === 'Basic'
+    ? `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`
+    : `Kinvey ${sessionStorage.getItem('authtoken')}`
+   }
+
+   makeHeaders(method: string, type: string) {
+    const headers = {
+        method: method,
+        headers: {
+            'Authorization': this.createAuthorization(type),
+            'content-type': 'application/json'
+        }
+    }
+    // if (method === 'POST' || method === 'PUT') {
+    //     headers.body = JSON.stringify(data);
+    // }
+
+    return headers;
+  }
+   
   register(firstName: string, secondName: string, username: string, password: string ){
         
     const info = {
@@ -29,16 +51,16 @@ export class AuthService {
     }
     
     const body= JSON.stringify(info)
-    const headers = {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
-        'Content-Type': 'application/json',
-      }
-      
-    };
+    // const headers = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
+    //     'Content-Type': 'application/json',
+    //   }
+    // };
+    const headers =  this.makeHeaders('Post', 'Basic');
 
-    this.http.post(`https://baas.kinvey.com/user/${this.appKey}`,body, headers).subscribe(data=>{
+    this.http.post(`${this.url}user/${this.appKey}`,body, headers).subscribe(data=>{
        this.isLogin = true;
        
        this.addInfoLocaleStorage(data);
@@ -58,15 +80,16 @@ export class AuthService {
     }
     const body = JSON.stringify(data);
  
-    const headers = {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
-        'Content-Type': 'application/json'
-      }
-    };
+    // const headers = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+    const headers =  this.makeHeaders('Post', 'Basic');
     
-      this.http.post(`https://baas.kinvey.com/user/${this.appKey}/login`,body , headers).subscribe(data=>{
+      this.http.post(`${this.url}user/${this.appKey}/login`,body , headers).subscribe(data=>{
       this.addInfoLocaleStorage(data);
       this.isLogin = true;
       this.router.navigate(['/concert/list'])
@@ -79,13 +102,14 @@ export class AuthService {
     this.isLogin = false;
     // this.router.navigate(['']);
     this.concertService.userTicketsList = [];
-    const headers = {
-      method: 'POST',
-      headers: {
-        'Authorization': `Kinvey ${authtoken}`,
-      }
-    };
-    this.http.post(`https://baas.kinvey.com/user/${this.appKey}/_logout`,{}, headers).subscribe(data=>{
+    // const headers = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Authorization': `Kinvey ${authtoken}`,
+    //   }
+    // };
+    const headers = this.makeHeaders('Post', 'Kinvey')
+    this.http.post(`${this.url}user/${this.appKey}/_logout`,{}, headers).subscribe(data=>{
       localStorage.clear()
     });
     
