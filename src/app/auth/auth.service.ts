@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ConcertService } from '../concert/concert.service';
+// import { ConcertService } from '../concert/concert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,17 @@ export class AuthService {
   collection: string = 'concerts';
   url: string = 'https://baas.kinvey.com/';
   
-  constructor(private http: HttpClient, private router: Router, private concertService: ConcertService) {
-    this.concertService.appKey = this.appKey;
-    this.concertService.appSecret = this.appSecret;
-    this.concertService.collection = this.collection;
+  constructor(private http: HttpClient, private router: Router) {
+    // this.concertService.appKey = this.appKey;
+    // this.concertService.appSecret = this.appSecret;
+    // this.concertService.collection = this.collection;
 
    }
 
    createAuthorization(type: string) {
     return type === 'Basic'
     ? `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`
-    : `Kinvey ${sessionStorage.getItem('authtoken')}`
+    : `Kinvey ${localStorage.getItem('authtoken')}`
    }
 
    makeHeaders(method: string, type: string) {
@@ -101,7 +101,7 @@ export class AuthService {
   logout(authtoken: string){
     this.isLogin = false;
     // this.router.navigate(['']);
-    this.concertService.userTicketsList = [];
+    // this.concertService.userTicketsList = [];
     // const headers = {
     //   method: 'POST',
     //   headers: {

@@ -9,8 +9,8 @@ import { AuthService } from '../auth/auth.service';
 export class FormService {
   userInfo: Object;
   isLogin: boolean = this.authService.isLogin;
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
-
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  
   
 
   

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -17,40 +16,45 @@ export class ConcertService {
   list$: Observable<any>;
   concertDetail;
   userTicketsList = [];
-  appKey: string ;
-  appSecret: string;
-  collection: string;
+  appKey: string = this.authService.appKey;
+  appSecret: string = this.authService.appSecret;
+  url = this.authService.url
+  collection: string = this.authService.collection;
   
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
   
   getConcertList(type: string, username:string, password: string, authtoken?) {
-    if (!this.list$) {
-      const headers = {
-        method: 'GET',
-        headers: {
-          'Authorization': `${type} ${btoa(`${username}:${password}`)}`,
-          'Content-Type': 'application/json'
-          }
-        };
+    
+      // const headers = {
+      //   method: 'GET',
+      //   headers: {
+      //     'Authorization': `${type} ${btoa(`${username}:${password}`)}`,
+      //     'Content-Type': 'application/json'
+      //     }
+      //   };
+      const headers = this.authService.makeHeaders('GET', 'Basic');
+      
       if (authtoken) {
         headers.headers.Authorization = `Kinvey ${localStorage.authtoken}`;
+      } else {
+        headers.headers.Authorization = `Basic ${btoa(`${username}:${password}`)}`
       }
-      return this.list$ =  this.http.get<any>(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}`, headers);
-    }
+      return this.list$ =  this.http.get<any>(`${this.url}appdata/${this.appKey}/${this.collection}`, headers);
+    
     }
   
   getConcertDetails(id: string) {
        
-      const headers = {
-      method: 'GET',
-      headers: {
-        'Authorization': `Kinvey ${localStorage.authtoken}`,
-        'Content-Type': 'application/json'
-      }
-    };
-    
-    
-    this.concertDetail = this.http.get(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, headers)
+    //   const headers = {
+    //   method: 'GET',
+    //   headers: {
+    //     'Authorization': `Kinvey ${localStorage.authtoken}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+    const headers = this.authService.makeHeaders('Get', 'Kinvey');
+    console.log(headers)
+    this.concertDetail = this.http.get(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, headers)
   }
 
   reserveTicket(id: string, count: number, concert) {
@@ -73,20 +77,21 @@ export class ConcertService {
         body.users.push({userId, ticket:count})
       }
       
-      const headers = {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Kinvey ${localStorage.authtoken}`,
-        'Content-Type': 'application/json'
-      }
-    };
+    //   const headers = {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Authorization': `Kinvey ${localStorage.authtoken}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+    const headers = this.authService.makeHeaders('PUT', 'Kinvey');
 
-    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
+    this.concertDetail = this.http.put(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
     .subscribe(d=> {
       this.router.navigate(['/user'])
     })
-    this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
-    .subscribe(d=> console.log(d))
+    // this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
+    // .subscribe(d=> console.log(d))
   }
 
   checkUserTickets () {
@@ -110,9 +115,7 @@ export class ConcertService {
         
   }
 
-  naviAnimation () {
-    
-  }
+  
 }
 
   
