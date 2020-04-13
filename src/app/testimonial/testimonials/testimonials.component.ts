@@ -21,6 +21,7 @@ export class TestimonialsComponent implements OnInit {
   }
   send(text) {
     this.testimonialService.sendComment(text);
+    this.testimonialService.getCommentList().subscribe(d=> this.list = d);
   }
   deleteCom(id) {
     console.log(id);

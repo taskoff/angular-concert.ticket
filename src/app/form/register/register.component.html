@@ -5,38 +5,51 @@
 </div>
 
 
-<form #regForm="ngForm" class="register-form form"  action="/register" method="post">
+<form #regForm="ngForm" class="register-form form"  >
   <div class="input-container">
       <div class="form-label-input">
         <label for="inputName"><span>Име*</span></label>
         <input ngModel #nameInput="ngModel" name="firstName" type="text" id="inputName"  pattern="[a-zA-Z]+" minlength="3" required="" class="form-input" placeholder="Петър" >
-        <div *ngIf="nameInput.errors?.minlength?.actualLength || nameInput.errors?.pattern?.actualValue " class="requred-conditions">
-          <p>само големи, малки букви и '-'</p>
+        <div *ngIf="nameInput.errors?.required && nameInput.touched" class="requred-conditions">Name is required</div>
+        <div *ngIf="nameInput.errors?.minlength?.actualLength" class="requred-conditions">
           <p>най-малко 3 символа</p>
         </div>
-
+        <ng-container *ngIf="!nameInput.errors?.minlength?.actualLength">
+          <div *ngIf="nameInput.errors?.pattern?.actualValue" class="requred-conditions">
+            <p>само големи, малки букви и '-'</p>
+          </div>
+        </ng-container>
       </div>
 
       <div class="form-label-input">
         <label for="inputSecondName">Фамилия*</label>
         <input ngModel  #secondNameInput="ngModel" type="text" id="inputSecondName" pattern="[a-zA-Z]+"   minlength="3" required name="secondName" class="form-input" placeholder="Петров*">
-        <div *ngIf="secondNameInput.errors?.minlength?.actualLength || secondNameInput.errors?.pattern?.actualValue  " class="requred-conditions">
-          <p>само големи, малки букви и '-'</p>
+        <div *ngIf="secondNameInput.errors?.required && secondNameInput.touched" class="requred-conditions">Last Name is required</div>
+        <div *ngIf="secondNameInput.errors?.minlength?.actualLength" class="requred-conditions">
           <p>най-малко 3 символа</p>
         </div>
+        <ng-container *ngIf="!secondNameInput.errors?.minlength?.actualLength">
+          <div *ngIf="secondNameInput.errors?.pattern?.actualValue" class="requred-conditions">
+            <p>само големи, малки букви и '-'</p>
+          </div>
+        </ng-container>
       </div>
     
       <div class="form-label-input">
           <label for="inputEmail">Имейл*</label>
         <input type="text" id="inputEmail" ngModel #emailInput='ngModel'  name="email" class="form-input" placeholder="petar@email.com" required pattern="[a-zA-Z0-9-_.]+\@[a-z]+\.[a-z]+">
-        <div *ngIf="emailInput.errors?.pattern?.actualValue" class="requred-conditions">
+        
+          <div *ngIf="emailInput.errors?.required && emailInput.touched" class="requred-conditions">Email is required</div>
+          <div *ngIf="emailInput.errors?.pattern?.actualValue" class="requred-conditions">
           <p>въведете валиден имейл</p>
         </div>
+       
       </div>
 
       <div class="form-label-input">
         <label for="inputPassword">Парола*</label>
         <input type="password" id="inputPassword" ngModel name="password" #passwordInput="ngModel" minlength="6" required class="form-input" placeholder="*******" >
+        <div *ngIf="passwordInput.errors?.required && passwordInput.touched" class="requred-conditions">Password is required</div>
         <div *ngIf="passwordInput.errors?.minlength?.actualLength" class="requred-conditions">
           <p>най-малко 6 символа</p>
         </div>

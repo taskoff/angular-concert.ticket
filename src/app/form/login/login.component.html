@@ -7,13 +7,17 @@
     <div class="input-container">
       <div class="form-label-input">
         <label for="inputEmail"><span>Имейл</span></label>
-        <input ngModel type="text" id="inputEmail" name="email" class="form-control" placeholder="Имейл" required=""
+        <input ngModel #emailInput="ngModel" type="text" id="inputEmail" name="email"  class="form-control" required placeholder="Имейл" 
           autofocus="">
+        <div *ngIf="emailInput.errors?.required && emailInput.touched" class="requred-conditions">Email is required</div>
+
       </div>
   
       <div class="form-label-input">
         <label for="inputPassword">Парола</label>
-        <input type="password" id="inputPassword" ngModel name="password" class="form-control" placeholder="Парола" required="">
+        <input type="password" ngModel #passwordInput="ngModel" id="inputPassword" ngModel name="password" #inputPassword class="form-control" placeholder="Парола" required>
+        <div *ngIf="passwordInput.errors?.required && passwordInput.touched" class="requred-conditions">Password is required</div>
+        
       </div>
     </div>
       <button class="btn login-btn" [disabled]="logForm.invalid" (click)="login(logForm.value)">Влез</button>
