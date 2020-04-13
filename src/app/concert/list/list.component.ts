@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class ListComponent implements OnInit {
   list: any[];
   isLoggin: boolean = !!this.authService.isLogin;
-  // list$: Observable<any>  = this.concertService.list$? this.concertService.list$ : this.concertService.getConcertList('Basic', 'guest', 'guest');
+
   constructor(private concertService: ConcertService,
               private authService: AuthService,
              ) { 

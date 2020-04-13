@@ -25,13 +25,6 @@ export class ConcertService {
   
   getConcertList(authtoken?) {
     
-      // const headers = {
-      //   method: 'GET',
-      //   headers: {
-      //     'Authorization': `${type} ${btoa(`${username}:${password}`)}`,
-      //     'Content-Type': 'application/json'
-      //     }
-      //   };
       const headers = this.authService.makeHeaders('GET', 'Basic');
       
       if (authtoken) {
@@ -41,17 +34,10 @@ export class ConcertService {
       }
       return this.list$ =  this.http.get<any>(`${this.url}appdata/${this.appKey}/${this.collection}`, headers);
     
-    }
+  }
   
   getConcertDetails(id: string) {
        
-    //   const headers = {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': `Kinvey ${localStorage.authtoken}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // };
     const headers = this.authService.makeHeaders('Get', 'Kinvey');
     console.log(headers)
     this.concertDetail = this.http.get(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, headers)
@@ -77,21 +63,13 @@ export class ConcertService {
         body.users.push({userId, ticket:count})
       }
       
-    //   const headers = {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Authorization': `Kinvey ${localStorage.authtoken}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // };
     const headers = this.authService.makeHeaders('PUT', 'Kinvey');
 
     this.concertDetail = this.http.put(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
     .subscribe(d=> {
       this.router.navigate(['/user'])
     })
-    // this.concertDetail = this.http.put(`https://baas.kinvey.com/appdata/${this.appKey}/concerts/${id}`, body, headers)
-    // .subscribe(d=> console.log(d))
+   
   }
 
   checkUserTickets () {

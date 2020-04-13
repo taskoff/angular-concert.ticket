@@ -1,9 +1,7 @@
 <input type="checkbox" id="nav-toggle" class="nav-toggle">
 <nav class="site-navi" [ngClass]="{loaded: isLoaded}">
     <div class="site-logo"></div>
-    <!-- <div class="concerts-navi">
-        <p><a href="">Концерти</a></p>
-    </div>  -->
+    
     <div class="primary-menu">
         <ul>
             <li *ngIf="!isLoggin"><a routerLink="" >Home</a></li>

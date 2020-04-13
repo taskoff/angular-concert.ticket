@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-// import { ConcertService } from '../concert/concert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,7 @@ export class AuthService {
   url: string = 'https://baas.kinvey.com/';
   
   constructor(private http: HttpClient, private router: Router) {
-    // this.concertService.appKey = this.appKey;
-    // this.concertService.appSecret = this.appSecret;
-    // this.concertService.collection = this.collection;
-
+    
    }
 
    createAuthorization(type: string) {
@@ -51,13 +47,7 @@ export class AuthService {
     }
     
     const body= JSON.stringify(info)
-    // const headers = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
-    //     'Content-Type': 'application/json',
-    //   }
-    // };
+   
     const headers =  this.makeHeaders('Post', 'Basic');
 
     this.http.post(`${this.url}user/${this.appKey}`,body, headers).subscribe(data=>{
@@ -80,13 +70,6 @@ export class AuthService {
     }
     const body = JSON.stringify(data);
  
-    // const headers = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Basic ${btoa(`${this.appKey}:${this.appSecret}`)}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // };
     const headers =  this.makeHeaders('Post', 'Basic');
     
       this.http.post(`${this.url}user/${this.appKey}/login`,body , headers).subscribe(data=>{
@@ -100,14 +83,7 @@ export class AuthService {
 
   logout(){
     this.isLogin = false;
-    // this.router.navigate(['']);
-    // this.concertService.userTicketsList = [];
-    // const headers = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Kinvey ${authtoken}`,
-    //   }
-    // };
+    
     const headers = this.makeHeaders('Post', 'Kinvey')
     this.http.post(`${this.url}user/${this.appKey}/_logout`,{}, headers).subscribe(data=>{
       localStorage.clear()
@@ -119,12 +95,12 @@ export class AuthService {
 
   addInfoLocaleStorage(data) {
     localStorage.setItem('authtoken', data._kmd.authtoken);
-                       localStorage.setItem('username', data.username);
-                       localStorage.setItem('userId', data._id);
-                       localStorage.setItem('authtoken', data._kmd.authtoken);
-                       localStorage.setItem('firstName', data.firstName);
-                       localStorage.setItem('lastName', data.secondName)
-                       localStorage.setItem('email', data.username)
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('userId', data._id);
+    localStorage.setItem('authtoken', data._kmd.authtoken);
+    localStorage.setItem('firstName', data.firstName);
+    localStorage.setItem('lastName', data.secondName)
+    localStorage.setItem('email', data.username)
 
 
 

@@ -23,12 +23,5 @@ export class NaviComponent implements OnInit {
   logout() {
     this.authService.logout()
   }
-  // getList() {
-   
-  //   if(!this.concertService.list$){
-  //     this.concertService.getConcertList('Basic');
-  //   }
-    
-  // }
-}
+ }
 // 
