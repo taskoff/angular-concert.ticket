@@ -9,4 +9,8 @@
 ### After register or login display button Details. 
 ### Here is Details page.  
 ![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/concert.details.jpg)
-### After booking count of Tickets go down. If No tickets button not display.
+### After booking count of Tickets go down and navigate to Profile page. If No tickets, button not display.
+![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/profile.jpg)
+### Booking tickets for same concert increased.
+
+
