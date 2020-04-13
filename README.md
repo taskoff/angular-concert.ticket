@@ -12,5 +12,9 @@
 ### After booking count of Tickets go down and navigate to Profile page. If No tickets, button not display.
 ![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/profile.jpg)
 ### Booking tickets for same concert increased.
+### User can send comments in comments page:
+![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/comments.jpg)
+### If is users comment display button "delete".
+
 
 
