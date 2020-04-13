@@ -10,14 +10,24 @@ import { Observable } from 'rxjs';
 })
 export class TestimonialsComponent implements OnInit {
   collection = 'testimonials';
-  list$;
-  constructor(private testimonialService: TestimonialService) { }
+  list;
+  authorId = localStorage.getItem('userId');
+  constructor(private testimonialService: TestimonialService) { 
+    this.testimonialService.getCommentList().subscribe(d=> this.list = d);
+  }
 
   ngOnInit() {
-   this.list$ = this.testimonialService.getTestimonialList()
+   
   }
   send(text) {
-    this.testimonialService.sendTestimonial(text);
+    this.testimonialService.sendComment(text);
+  }
+  deleteCom(id) {
+    console.log(id);
+    this.testimonialService.deleteComment(id).subscribe(d=>{
+      this.testimonialService.getCommentList().subscribe(d=> this.list = d);
+    });
+
   }
 
   // sendTestimonial(text) {

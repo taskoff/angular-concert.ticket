@@ -6,27 +6,31 @@
             <div class="text-box">
                 <textarea #textArea name="" id="" placeholder="Твоето мнение...." ></textarea>
             </div>
-            <div class="send-btn">
-                <button (click)="send(textArea.value)">Изпрати</button>
+            <div class="send-btn-box">
+                <button class="send-btn" (click)="send(textArea.value)">Изпрати</button>
             </div>
             
         </div>
     </div>
+    <h2>All Comments:</h2>
     <div class="all-testimoniels-container">
-        <div class="testimonial-container" *ngFor="let t of list$ |async">
+        <div class="testimonial-container" *ngFor="let t of list">
             <div class="testimonial-box">
                 <p>{{t.testimonial}}</p>
             </div>
-            <div class="author-box">
+            <div class="author-box" *ngIf="t._acl.creator !== authorId">
                 <span>Автор:</span>
                 <span>{{t.author.firstName}}</span>
                 <span>{{t.author.lastName}}</span>
+            </div>
+            <div class="btns-box" *ngIf="t._acl.creator === authorId">
+                <button class="Delete" (click)="deleteCom(t._id)">Delete</button>
             </div>
             
         </div>
         <!-- <ul>
             <li *ngFor="let t of list$ |async">{{t.author.firstName}}</li>
         </ul> -->
-        {{list$ | async}}
+        {{list}}
     </div>
 </div>

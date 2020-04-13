@@ -7,9 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TestimonialService {
   collection = 'testimonials';
+  list;
   constructor(private authService: AuthService, private http: HttpClient) { }
 
-  sendTestimonial(text) {
+  sendComment(text) {
     const headers = this.authService.makeHeaders('POST', 'Kinvey');
     const data = {
       testimonial: text,
@@ -23,15 +24,21 @@ export class TestimonialService {
     this.http.post(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, body, headers)
     .subscribe(d=> {
      console.log(d)
+     this.getCommentList();
     })
   }
-  getTestimonialList() {
+  getCommentList() {
     const headers = this.authService.makeHeaders('POST', 'Kinvey');
     
     return this.http.get(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, headers)
-    // .subscribe(d=> {
-    //  console.log(d)
-    // })
+    
+   
+  }
+  deleteComment(id) {
+    const headers = this.authService.makeHeaders('DELETE', 'Kinvey');
+
+    return this.http.delete(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}/${id}`, headers)
+    
   }
 
 }
