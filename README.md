@@ -16,5 +16,13 @@
 ![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/comments.jpg)
 ### If is users comment display button "delete".
 
+### All Input fields in forms are required.
+### In Register form:
+#### First Name and Last Name - minLength and only letters
+#### Email - must have symbols@symbols.symbols
+#### Password - minLength
+#### RePassword - must be same like Password
+
+
 
 
