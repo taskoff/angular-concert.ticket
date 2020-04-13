@@ -19,7 +19,7 @@
 ### All Input fields in forms are required.
 ### In Register form:
 #### First Name and Last Name - minLength and only letters
-#### Email - must have symbols@symbols.symbols
+#### Email - some custom regex email validation.
 #### Password - minLength
 #### RePassword - must be same like Password
 
