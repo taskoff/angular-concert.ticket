@@ -11,8 +11,8 @@
         <li class="data">Date: {{concert.date}}</li>
         <li class="city">City: {{concert.city}}</li>
         <li class="place">Place: {{concert.place}}</li>
-        <li class="price">Price: <span>{{concert.ticketPrice}}</span> лв.</li>
-        <li class="tickets" >Тickets remaining: <span [class.red]="concert.ticketsCount < 21">{{concert.ticketsCount}}</span> бр.</li>
+        <li class="price">Price: <span>{{concert.ticketPrice}}</span> eu.</li>
+        <li class="tickets" >Тickets remaining: <span [class.red]="concert.ticketsCount < 21">{{concert.ticketsCount}}</span> </li>
             <li class ><span>Select a number</span><input #count count-tickets type="number" min="1" max="{{concert.ticketsCount}}" value="1">
                 </li>
         </ul>

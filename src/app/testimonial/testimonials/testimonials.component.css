@@ -67,6 +67,7 @@ h2 {
 .btns-box button {
     padding: 2px 20px;
     cursor: pointer;
+    border-radius: 2px;
 }
 .send-btn-box button {
     padding: 2px 15px;
