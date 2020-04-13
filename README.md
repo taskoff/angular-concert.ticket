@@ -5,5 +5,8 @@
 ![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/home.page.jpg)
 ### List Page with NO registraion with two buttons:
 ![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/list.no.reg.jpg)
-### After register or login display button Details
-
+### If tickets count < 20 display 'Last chance', if no more tickets "Not have"
+### After register or login display button Details. 
+### Here is Details page.  
+![alt text](https://raw.githubusercontent.com/taskoff/angular-concert.ticket/master/angular.pics/concert.details.jpg)
+### After booking count of Tickets go down. If No tickets button not display.
