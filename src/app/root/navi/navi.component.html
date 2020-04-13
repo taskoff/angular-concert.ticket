@@ -6,13 +6,13 @@
     </div>  -->
     <div class="primary-menu">
         <ul>
-            <li *ngIf="!isLoggin"><a routerLink="" >Начало</a></li>
-            <li><a routerLink="/concert" >Концерти</a></li>
-            <li *ngIf="isLoggin" id="navi-profile" class="show-wen-login"><a  routerLink="/user">Профил</a></li>
-            <li *ngIf="!isLoggin" id="navi-login" class="show-wen-noLogin"><a routerLink="/login" >Влез</a></li>
-            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a routerLink="/comments"  >Мнения</a></li>
-            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a  (click)='logout()' >Излез</a></li>
-            <li *ngIf="!isLoggin" id="navi-register" class="show-wen-noLogin"><a routerLink="/register" >Регистрирай се</a></li>
+            <li *ngIf="!isLoggin"><a routerLink="" >Home</a></li>
+            <li><a routerLink="/concert" >Concerts</a></li>
+            <li *ngIf="isLoggin" id="navi-profile" class="show-wen-login"><a  routerLink="/user">Profile</a></li>
+            <li *ngIf="!isLoggin" id="navi-login" class="show-wen-noLogin"><a routerLink="/login" >Login</a></li>
+            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a routerLink="/comments"  >Comments</a></li>
+            <li *ngIf="isLoggin" id="navi-logout" class="show-wen-login"><a  (click)='logout()' >Logout</a></li>
+            <li *ngIf="!isLoggin" id="navi-register" class="show-wen-noLogin"><a routerLink="/register" >Register</a></li>
         </ul>
         
     </div>

@@ -4,10 +4,10 @@
     <div class="send-testemonial-container">
         <div >
             <div class="text-box">
-                <textarea #textArea name="" id="" placeholder="Твоето мнение...." ></textarea>
+                <textarea #textArea name="" id="" placeholder="Your comment...." ></textarea>
             </div>
             <div class="send-btn-box">
-                <button class="send-btn" (click)="send(textArea.value)">Изпрати</button>
+                <button class="send-btn" (click)="send(textArea.value)">Send</button>
             </div>
             
         </div>
@@ -19,7 +19,7 @@
                 <p>{{t.testimonial}}</p>
             </div>
             <div class="author-box" *ngIf="t._acl.creator !== authorId">
-                <span>Автор:</span>
+                <span>Author:</span>
                 <span>{{t.author.firstName}}</span>
                 <span>{{t.author.lastName}}</span>
             </div>

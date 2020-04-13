@@ -1,5 +1,5 @@
 <app-navi></app-navi>
-<h1 class="page-title">Детайли</h1>
+<h1 class="page-title">Details</h1>
 
 <div class="details-container" *ngIf="concert" >
     <div class="img-container" >
@@ -7,17 +7,17 @@
     </div>
     <div class="info-container">
         <ul>
-        <li class="group-name">Изпълнител: {{concert.groupName}}</li>
-        <li class="data">Дата: {{concert.date}}</li>
-        <li class="city">Град: {{concert.city}}</li>
-        <li class="place">Място: {{concert.place}}</li>
-        <li class="price">Цена: <span>{{concert.ticketPrice}}</span> лв.</li>
-        <li class="tickets" >Оставащи билети: <span [class.red]="concert.ticketsCount < 21">{{concert.ticketsCount}}</span> бр.</li>
-            <li class ><span>Избери брой билети</span><input #count count-tickets type="number" min="1" max="{{concert.ticketsCount}}" value="1">
+        <li class="group-name">Group: {{concert.groupName}}</li>
+        <li class="data">Date: {{concert.date}}</li>
+        <li class="city">City: {{concert.city}}</li>
+        <li class="place">Place: {{concert.place}}</li>
+        <li class="price">Price: <span>{{concert.ticketPrice}}</span> лв.</li>
+        <li class="tickets" >Тickets remaining: <span [class.red]="concert.ticketsCount < 21">{{concert.ticketsCount}}</span> бр.</li>
+            <li class ><span>Select a number</span><input #count count-tickets type="number" min="1" max="{{concert.ticketsCount}}" value="1">
                 </li>
         </ul>
     </div>
     <div class="reserve-ticket-btn">
-        <a  *ngIf="concert.ticketsCount>0 " class="reserveTicketBtn" (click)="resTicket(concert._id, count.value, concert)" >Резервирай сега!</a>
+        <a  *ngIf="concert.ticketsCount>0 " class="reserveTicketBtn" (click)="resTicket(concert._id, count.value, concert)" >Book Now!</a>
     </div>
 </div>

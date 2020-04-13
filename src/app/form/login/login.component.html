@@ -6,25 +6,25 @@
   <form #logForm="ngForm" class="login-form form"  method="post">
     <div class="input-container">
       <div class="form-label-input">
-        <label for="inputEmail"><span>Имейл</span></label>
-        <input ngModel #emailInput="ngModel" type="text" id="inputEmail" name="email"  class="form-control" required placeholder="Имейл" 
+        <label for="inputEmail"><span>Email</span></label>
+        <input ngModel #emailInput="ngModel" type="text" id="inputEmail" name="email"  class="form-control" required placeholder="Email" 
           autofocus="">
-        <div *ngIf="emailInput.errors?.required && emailInput.touched" class="requred-conditions">Email is required</div>
+        <div *ngIf="emailInput.errors?.required && emailInput.touched" class="requred-conditions"> <p>Email is required</p> </div>
 
       </div>
   
       <div class="form-label-input">
-        <label for="inputPassword">Парола</label>
-        <input type="password" ngModel #passwordInput="ngModel" id="inputPassword" ngModel name="password" #inputPassword class="form-control" placeholder="Парола" required>
-        <div *ngIf="passwordInput.errors?.required && passwordInput.touched" class="requred-conditions">Password is required</div>
+        <label for="inputPassword">Password</label>
+        <input type="password" ngModel #passwordInput="ngModel" id="inputPassword" ngModel name="password" #inputPassword class="form-control" placeholder="Password" required>
+        <div *ngIf="passwordInput.errors?.required && passwordInput.touched" class="requred-conditions"><p>Password is required</p></div>
         
       </div>
     </div>
-      <button class="btn login-btn" [disabled]="logForm.invalid" (click)="login(logForm.value)">Влез</button>
+      <button class="btn login-btn" [disabled]="logForm.invalid" (click)="login(logForm.value)">Sign-In</button>
     
       <div class="div-have-no-acount">
-        <p class="have-no-acount"> Нямаш акаунт? Тогава 
-          <a routerLink="/register">Регистрирай се</a>
+        <p class="have-no-acount"> Don't have account? Then just 
+          <a routerLink="/register">Sign-Up</a>
         </p>
       </div>
   

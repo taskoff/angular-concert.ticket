@@ -1,6 +1,6 @@
 <app-navi></app-navi>
 
-<h1 class="page-title">Профил</h1>
+<h1 class="page-title">Profile</h1>
 
 <div class="user-info-container">
     <div class="img-container">
@@ -8,26 +8,26 @@
     </div>
 
     <div class="user-info">
-    <p class="first-name">Име: {{firstName}}</p>
-    <p class="second-name">Фамилия: {{lastName}}</p>
-    <p class="first-name">Имейл: {{email}}</p>
+    <p class="first-name">Name: {{firstName}}</p>
+    <p class="second-name">Last Name: {{lastName}}</p>
+    <p class="first-name">Email: {{email}}</p>
     </div>
 
     <div class="ticket-info">
-        <h3>Резервирани билети: </h3>
+        <h3>Reserved tickets: </h3>
             <div class="loader-container"  *ngIf="!ticketList">
                 <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             </div>   
 
             <ul class="ticket-list" *ngIf="ticketList">
-                <li *ngIf="ticketList.length==0"> <span>Няма резервирани билети!</span> </li>
+                <li *ngIf="ticketList.length==0"> <span>No Reserved tickets!</span> </li>
                 
                 <li *ngFor="let ticketListt of ticketList" class="ticket-info-container">
                     <div  >
-                        <span>Група: {{ticketListt.group}}</span>
-                        <span>Град: {{ticketListt.city}}</span>
-                        <span>Дата: {{ticketListt.date}}</span>
-                        <span>Брой билети: {{ticketListt.tickets}}</span>
+                        <span>Group: {{ticketListt.group}}</span>
+                        <span>City: {{ticketListt.city}}</span>
+                        <span>Date: {{ticketListt.date}}</span>
+                        <span>Tickets: {{ticketListt.tickets}}</span>
                     </div>
                 
                 </li>

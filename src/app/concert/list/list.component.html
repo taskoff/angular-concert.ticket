@@ -1,5 +1,5 @@
 <app-navi></app-navi>
-<h1 class="page-title">Концерти</h1>
+<h1 class="page-title">Concerts</h1>
 <div *ngIf="!(list)" class="loader-container">
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 </div>
@@ -11,18 +11,18 @@
             <!-- <img src="../concerts-img/acdc.jpg"alt=""> -->
             </div>
             <ul class="concert-info" >
-                <li class="last-chance" *ngIf="concert.ticketsCount < 21 && concert.ticketsCount > 0">Последен шанс!</li>
-                <li class="last-chance" *ngIf="concert.ticketsCount == 0">Изчерпани!</li>
-            <li class="concert-group">Група: {{concert.groupName}}</li>
-            <li class="concert-date">Дата: {{concert.date}}</li>
-            <li class="concert-place">Град: {{concert.city}}</li>
+                <li class="last-chance" *ngIf="concert.ticketsCount < 21 && concert.ticketsCount > 0">Last chance!</li>
+                <li class="last-chance" *ngIf="concert.ticketsCount == 0">Not have!</li>
+            <li class="concert-group">Group: {{concert.groupName}}</li>
+            <li class="concert-date">Date: {{concert.date}}</li>
+            <li class="concert-place">City: {{concert.city}}</li>
             </ul>
             <div class="two-btns" *ngIf="!isLoggin">
-                <span class="login-btn"><a routerLink="/login">Влез</a></span>
-                <span class="register-btn"><a routerLink="/register">Регистрирай се</a></span>
+                <span class="login-btn"><a routerLink="/login">Login</a></span>
+                <span class="register-btn"><a routerLink="/register">Register</a></span>
             </div>
             <div class="div-detail-btn"*ngIf="isLoggin">
-                <a routerLink="/concert/details"(click)="getDetails(concert._id)">Детайли</a>
+                <a routerLink="/concert/details"(click)="getDetails(concert._id)">Details</a>
             </div>
             <!-- {{concert | json}} -->
         </div>
