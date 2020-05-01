@@ -19,8 +19,9 @@ export class TestimonialsComponent implements OnInit {
   ngOnInit() {
    
   }
-  send(text) {
-    this.testimonialService.sendComment(text);
+  send(textArea) {
+    this.testimonialService.sendComment(textArea.value);
+    textArea.value = '';
     this.testimonialService.getCommentList().subscribe(d=> this.list = d);
   }
   deleteCom(id) {
