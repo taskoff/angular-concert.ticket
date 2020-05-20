@@ -8,6 +8,10 @@
 
 @media (max-width: 600px) {
     form .form-label-input {
-        text-align: center;
+        text-align: right;
     }
+    h1.page-title {
+        font-size: 3em;
+    }
+
 }

@@ -33,4 +33,7 @@
         margin: 0;
         text-align: left;
     }
+    h1.page-title {
+        font-size: 3em;
+    }
 }

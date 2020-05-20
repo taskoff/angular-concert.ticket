@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   isLogin: boolean = false;
-  appKey: string = 'kid_S1DTF3XU8';
-  appSecret: string = '22057f59dfa64487b994c6bbf88bf8a0';
+  appKey: string = 'kid_rJlk1vfsL';
+  appSecret: string = '56db5ff85643417ea5e83bbca0e85479';
   collection: string = 'concerts';
   url: string = 'https://baas.kinvey.com/';
   
@@ -30,10 +30,7 @@ export class AuthService {
             'content-type': 'application/json'
         }
     }
-    // if (method === 'POST' || method === 'PUT') {
-    //     headers.body = JSON.stringify(data);
-    // }
-
+   
     return headers;
   }
    

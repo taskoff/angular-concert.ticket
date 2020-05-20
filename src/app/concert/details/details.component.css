@@ -105,5 +105,9 @@ h1.page-title {
     }
     .info-container ul {
         max-width: 100%;
+        padding-left: 10px;
+    }
+    h1.page-title {
+        font-size: 3em;
     }
 }
