@@ -25,6 +25,6 @@
 #### Password - minLength
 #### RePassword - must be same like Password
 
-
+### Have a responsive for phones.
 
 
