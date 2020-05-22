@@ -1,3 +1,5 @@
+# Exam Angular - January 2020.
+
 # ConcertTiket
 
 ## App for booking concert tickets.
@@ -23,6 +25,6 @@
 #### Password - minLength
 #### RePassword - must be same like Password
 
-
+### Have a responsive for phones.
 
 
