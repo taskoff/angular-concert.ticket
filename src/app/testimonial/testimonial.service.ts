@@ -23,7 +23,6 @@ export class TestimonialService {
     
     this.http.post(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, body, headers)
     .subscribe(d=> {
-     console.log(d)
      this.getCommentList();
     })
   }

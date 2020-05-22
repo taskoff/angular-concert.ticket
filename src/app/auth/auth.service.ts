@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   isLogin: boolean = false;
-  appKey: string = 'kid_rJlk1vfsL';
-  appSecret: string = '56db5ff85643417ea5e83bbca0e85479';
+  appKey: string = 'kid_SkvDb2moU';
+  appSecret: string = '2e2f840f924547d2be38943e62f25ca4';
   collection: string = 'concerts';
   url: string = 'https://baas.kinvey.com/';
   

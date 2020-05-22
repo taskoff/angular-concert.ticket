@@ -39,7 +39,7 @@ export class ConcertService {
   getConcertDetails(id: string) {
        
     const headers = this.authService.makeHeaders('Get', 'Kinvey');
-    console.log(headers)
+    // console.log(headers)
     this.concertDetail = this.http.get(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, headers)
   }
 
@@ -64,7 +64,7 @@ export class ConcertService {
       }
       
     const headers = this.authService.makeHeaders('PUT', 'Kinvey');
-
+      console.log(body)
     this.concertDetail = this.http.put(`${this.url}appdata/${this.appKey}/${this.collection}/${id}`, body, headers)
     .subscribe(d=> {
       this.router.navigate(['/user'])
