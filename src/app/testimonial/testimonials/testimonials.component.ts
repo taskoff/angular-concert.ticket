@@ -30,7 +30,7 @@ export class TestimonialsComponent implements OnInit {
     });
 
   }
-
+// 
   
   
 }
