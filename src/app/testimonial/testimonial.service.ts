@@ -28,7 +28,7 @@ export class TestimonialService {
   }
   getCommentList() {
     const headers = this.authService.makeHeaders('POST', 'Kinvey');
-    
+    console.log(headers.headers)
     return this.http.get(`${this.authService.url}appdata/${this.authService.appKey}/${this.collection}`, headers)
     
    

@@ -26,12 +26,13 @@ export class ConcertService {
   getConcertList(authtoken?) {
     
       const headers = this.authService.makeHeaders('GET', 'Basic');
-      
+      console.log('authtokken:', authtoken)
       if (authtoken) {
         headers.headers.Authorization = `Kinvey ${localStorage.authtoken}`;
       } else {
         headers.headers.Authorization = `Basic ${btoa(`guest:guest`)}`
       }
+      console.log(headers.headers)
       return this.list$ =  this.http.get<any>(`${this.url}appdata/${this.appKey}/${this.collection}`, headers);
     
   }

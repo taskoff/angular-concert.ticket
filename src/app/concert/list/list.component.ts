@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
               private authService: AuthService,
              ) { 
                this.concertService.getConcertList().subscribe(d=>this.list = d, err=>alert(err));
+               console.log(this.list)
              }
 
   ngOnInit() {
